@@ -28,7 +28,7 @@
     },
     {
       title: 'SafeWalk', tag: 'UX', date: 'Coming soon', comingSoon: true,
-      bg: 'var(--orange-soft)', image: 'images/safewalk-cover.jpg'
+      bg: 'var(--orange-soft)', image: 'images/safewalk-map-cover.jpg'
     }
   ];
 
