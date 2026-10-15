@@ -25,6 +25,10 @@
     {
       title: 'BYUI Design System', tag: 'UX', date: 'Coming soon', comingSoon: true,
       bg: 'var(--orange-soft)', image: 'images/designsystem-colors-cover.jpg'
+    },
+    {
+      title: 'SafeWalk', tag: 'UX', date: 'Coming soon', comingSoon: true,
+      bg: 'var(--orange-soft)', image: 'images/safewalk-cover.jpg'
     }
   ];
 
