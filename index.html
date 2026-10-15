@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ellie Talbot — Product Designer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/home.css">
+</head>
+<body>
+
+  <div class="nav-wrap">
+    <div class="nav-glow"></div>
+    <nav>
+      <a class="logo" href="index.html">ellie</a>
+      <ul class="nav-links">
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="about.html">About Me</a></li>
+      </ul>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      </button>
+      <a class="say-hi" href="resume.pdf" target="_blank" rel="noopener">Resume</a>
+    </nav>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="projects.html">Projects</a>
+      <a href="about.html">About Me</a>
+    </div>
+  </div>
+
+  <section class="pin-wrapper" id="pinWrapper">
+    <div class="pin-inner" id="pinInner">
+
+      <div class="memoji-stage" id="memojiStage">
+        <div class="sticker tag-pill">Dev turned UX designer</div>
+        <div class="sticker laptop">💻</div>
+        <div class="memoji-glow"></div>
+        <img class="memoji-face" src="images/memoji.png" alt="Ellie's memoji">
+        <div class="sticker code">UX</div>
+        <div class="sticker watermelon">🍉</div>
+        <div class="name-pill-wrap" id="namePillWrap">
+          <div class="name-pill" id="namePill">Ellie Talbot</div>
+        </div>
+      </div>
+
+      <div class="hero-text" id="heroText" style="overflow:hidden; display:flex; flex-direction:column; align-items:center; width:100%; text-align:center;">
+        <p class="eyebrow" id="eyebrow">UX DESIGNER · FULL STACK DEV · HUMAN-CENTERED BUILDER</p>
+        <h1 class="headline" id="headline">I like making things make sense.</h1>
+      </div>
+
+      <div class="chat-window" id="chatWindow">
+        <div class="chat-body">
+          <div class="bubble in" id="b1">Hey! Saw your case study on BYUI Ticketing 👀</div>
+          <div class="bubble out" id="b2">Thank you! It was a fun one to design</div>
+          <div class="bubble in" id="b3">Do you have any other projects?</div>
+          <div class="bubble out" id="b4">Yes! Check them out below!</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="section projects-section" id="projects">
+    <div class="projects-head">
+      <div class="projects-head-left">
+        <svg class="projects-icon" width="34" height="34" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M6 2.5H13.5L18 7V19.5C18 20.6 17.1 21.5 16 21.5H6C4.9 21.5 4 20.6 4 19.5V4.5C4 3.4 4.9 2.5 6 2.5Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+          <path d="M13.3 2.6V6.8C13.3 7.35 13.75 7.8 14.3 7.8H18.4" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+          <path d="M9.3 13.2L7.3 15.2L9.3 17.2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M12.7 13.2L14.7 15.2L12.7 17.2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <div>
+          <h2>Featured Projects</h2>
+          <p class="lead">Blood, sweat, and tears were sacrificed</p>
+        </div>
+      </div>
+      <a href="projects.html" class="see-all">See All</a>
+    </div>
+
+    <div class="projects-grid">
+
+      <a class="project-card" href="ticketing-case-study.html">
+        <div class="card-visual">
+        <div class="photo-stack">
+          <div class="photo phone phone-a" style="background-image:url('images/ticketing-signin-current.jpg');" role="img" aria-label="BYU-Idaho ticket sign-in screen"></div>
+          <div class="photo phone phone-b" style="background-image:url('images/ticketing-sales-page-current.jpg');" role="img" aria-label="BYU-Idaho public sales listing page"></div>
+          <div class="photo phone phone-c" style="background-image:url('images/flow.png');" role="img" aria-label="Flow diagram mapping the original BYU-Idaho ticket purchase journey"></div>
+          <div class="photo desktop" style="background-image:url('images/ticketing-event-pair-pink.jpg');" role="img" aria-label="OneRepublic performing on stage, the case study's hero photo"></div>
+        </div>
+        <div class="folder">
+          <div class="folder-shape">
+            <svg viewBox="0 0 275 223" preserveAspectRatio="none">
+              <path d="M72 0C78.7339 0 86.2673 2.88799 90.4736 7.5C90.9799 8.05514 91.4596 8.63521 91.9102 9.23828C96.8632 14.7522 110.11 28 126 28H255C266.046 28 275 36.9543 275 48V203C275 214.046 266.046 223 255 223H20C8.95431 223 0 214.046 0 203V23C0 10.2975 10.2975 0 23 0H72Z" fill="#ffffff"/>
+            </svg>
+          </div>
+          <div class="folder-content">
+            <div class="folder-meta">
+              <span class="card-type">UX</span>
+              <span class="card-date">Spring 2025</span>
+            </div>
+            <h3 class="folder-title">BYUI Ticketing</h3>
+          </div>
+        </div>
+        </div>
+
+        <p class="card-desc">UX research case study rethinking BYU-Idaho's ticket buying experience — from login to checkout.</p>
+        <p class="card-role">Role — <strong>Lead UX Researcher</strong></p>
+      </a>
+
+      <!-- coming soon: not a link yet — swap the <div> for an <a href="..."> and
+           drop the "is-coming-soon" class once the case study page exists -->
+      <div class="project-card is-coming-soon" aria-label="Registration Redesign, case study coming soon">
+        <div class="card-visual">
+        <div class="photo-stack" aria-hidden="true">
+          <div class="photo phone phone-a" style="background-image:url('images/registration-steps.jpg');"></div>
+          <div class="photo phone phone-b" style="background-image:url('images/registration-iplan.jpg');"></div>
+          <div class="photo phone phone-c" style="background-image:url('images/registration-hero.jpg');"></div>
+          <div class="photo desktop" style="background-image:url('images/registration-whiteboard.jpg');"></div>
+        </div>
+        <div class="folder">
+          <div class="folder-shape">
+            <svg viewBox="0 0 275 223" preserveAspectRatio="none">
+              <path d="M72 0C78.7339 0 86.2673 2.88799 90.4736 7.5C90.9799 8.05514 91.4596 8.63521 91.9102 9.23828C96.8632 14.7522 110.11 28 126 28H255C266.046 28 275 36.9543 275 48V203C275 214.046 266.046 223 255 223H20C8.95431 223 0 214.046 0 203V23C0 10.2975 10.2975 0 23 0H72Z" fill="#ffffff"/>
+            </svg>
+          </div>
+          <div class="folder-content">
+            <div class="folder-meta">
+              <span class="card-type">UX</span>
+              <span class="card-date"><span class="soon-chip">Coming soon</span></span>
+            </div>
+            <h3 class="folder-title">Registration Redesign</h3>
+          </div>
+        </div>
+        </div>
+
+        <p class="card-desc">Rethinking the registration process, from visual web designs to a coordinated communications strategy.</p>
+        <p class="card-role">Role — <strong>Lead Student UX Designer &amp; Researcher</strong></p>
+      </div>
+
+      <div class="project-card is-coming-soon" aria-label="Student Health, case study coming soon">
+        <div class="card-visual">
+        <div class="photo-stack" aria-hidden="true">
+          <div class="photo phone phone-a" style="background-image:url('images/studenthealth-plan.jpg');"></div>
+          <div class="photo phone phone-b" style="background-image:url('images/studenthealth-code.jpg');"></div>
+          <div class="photo phone phone-c" style="background-image:url('images/studenthealth-photo.jpg');"></div>
+          <div class="photo desktop" style="background-image:url('images/studenthealth-appointments.jpg');"></div>
+        </div>
+        <div class="folder">
+          <div class="folder-shape">
+            <svg viewBox="0 0 275 223" preserveAspectRatio="none">
+              <path d="M72 0C78.7339 0 86.2673 2.88799 90.4736 7.5C90.9799 8.05514 91.4596 8.63521 91.9102 9.23828C96.8632 14.7522 110.11 28 126 28H255C266.046 28 275 36.9543 275 48V203C275 214.046 266.046 223 255 223H20C8.95431 223 0 214.046 0 203V23C0 10.2975 10.2975 0 23 0H72Z" fill="#ffffff"/>
+            </svg>
+          </div>
+          <div class="folder-content">
+            <div class="folder-meta">
+              <span class="card-type">UX</span>
+              <span class="card-date"><span class="soon-chip">Coming soon</span></span>
+            </div>
+            <h3 class="folder-title">Student Health</h3>
+          </div>
+        </div>
+        </div>
+
+        <p class="card-desc">Redesigning the interfaces students use to find care at BYU-Idaho, from Figma all the way to development.</p>
+        <p class="card-role">Role — <strong>Lead Student UX Designer &amp; Researcher</strong></p>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="section all-projects-section" id="all-projects">
+    <div class="projects-head">
+      <div class="projects-head-left">
+        <svg class="projects-icon" width="34" height="34" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="3" y="3" width="8" height="8" rx="2" stroke="currentColor" stroke-width="1.6"/>
+          <rect x="13" y="3" width="8" height="8" rx="2" stroke="currentColor" stroke-width="1.6"/>
+          <rect x="3" y="13" width="8" height="8" rx="2" stroke="currentColor" stroke-width="1.6"/>
+          <rect x="13" y="13" width="8" height="8" rx="2" stroke="currentColor" stroke-width="1.6"/>
+        </svg>
+        <div>
+          <h2>All Projects</h2>
+          <p class="lead">The full archive, all in one place</p>
+        </div>
+      </div>
+      <a href="projects.html" class="see-all">See All</a>
+    </div>
+
+    <div class="bento-grid">
+
+      <a class="bento-card bento-wide" href="ticketing-case-study.html" style="background:linear-gradient(160deg,#BFE3FF,#5BA6FF);">
+        <span class="bento-tag">UX</span>
+        <img class="bento-photo" src="images/ticketing-event-pair-pink.jpg" alt="OneRepublic performing on stage, from the BYUI Ticketing case study" loading="lazy">
+        <div class="bento-meta">
+          <div class="bento-title">BYUI Ticketing</div>
+          <div class="bento-date">Spring 2025</div>
+        </div>
+      </a>
+
+      <!-- coming soon: swap the <div> for an <a href="..."> once the case study exists -->
+      <div class="bento-card bento-soon" aria-label="Registration Redesign, case study coming soon">
+        <span class="bento-tag">UX</span>
+        <img class="bento-photo" src="images/registration-cover.jpg" alt="Registration Redesign step-by-step guide page" loading="lazy">
+        <div class="bento-meta">
+          <div class="bento-title">Registration Redesign</div>
+          <div class="bento-date">Coming soon</div>
+        </div>
+      </div>
+
+      <div class="bento-card bento-soon" aria-label="Student Health, case study coming soon">
+        <span class="bento-tag">UX</span>
+        <img class="bento-photo" src="images/studenthealth-cover.jpg" alt="Two students reviewing a health form in the BYU-Idaho Student Health Center" loading="lazy">
+        <div class="bento-meta">
+          <div class="bento-title">Student Health</div>
+          <div class="bento-date">Coming soon</div>
+        </div>
+      </div>
+
+      <div class="bento-card bento-soon" aria-label="BYUI Design System, case study coming soon">
+        <span class="bento-tag">UX</span>
+        <img class="bento-photo" src="images/designsystem-colors-cover.jpg" alt="BYU-Idaho design system color tokens: brand blue, brand gray, and warning/success swatches" loading="lazy">
+        <div class="bento-meta">
+          <div class="bento-title">BYUI Design System</div>
+          <div class="bento-date">Coming soon</div>
+        </div>
+      </div>
+
+      <a class="bento-card bento-wide bento-cta" href="projects.html">
+        <span class="bento-cta-text">See every project</span>
+        <span class="bento-cta-arrow">→</span>
+      </a>
+
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-logo">ellie</div>
+      <nav class="footer-links">
+        <a href="https://linkedin.com/in/ellietalbot" target="_blank" rel="noopener">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8.25h4V23h-4V8.25zM8.5 8.25h3.83v2.01h.05c.53-1 1.84-2.06 3.79-2.06 4.06 0 4.81 2.67 4.81 6.14V23h-4v-6.7c0-1.6-.03-3.66-2.23-3.66-2.24 0-2.58 1.75-2.58 3.55V23h-4V8.25z" fill="currentColor"/>
+          </svg>
+          LinkedIn
+        </a>
+        <a href="mailto:hello@ellietalbot.design">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M2 5.5h20a1 1 0 011 1V18a1 1 0 01-1 1H2a1 1 0 01-1-1V6.5a1 1 0 011-1z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+            <path d="M1.5 6.2L12 13.5l10.5-7.3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Email
+        </a>
+        <a href="resume.pdf" target="_blank" rel="noopener">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M6 2.5H14L19 7.5V19.5C19 20.6 18.1 21.5 17 21.5H6C4.9 21.5 4 20.6 4 19.5V4.5C4 3.4 4.9 2.5 6 2.5Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+            <path d="M13.5 2.6V6.8C13.5 7.35 13.95 7.8 14.5 7.8H18.7" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+            <path d="M8 13h8M8 16.5h8M8 9.5h4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+          </svg>
+          Resume
+        </a>
+      </nav>
+    </div>
+    <div class="footer-inner footer-bottom">
+      <p>© 2026 Ellie Talbot. Designed &amp; built with a little bit of magic.</p>
+    </div>
+    </footer>
+
+<script src="js/home.js"></script>
+<script src="js/nav.js"></script>
+</body>
+</html>

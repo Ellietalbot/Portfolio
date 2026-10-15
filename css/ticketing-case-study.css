@@ -1,0 +1,1579 @@
+/* Ticketing case study — long-form project page. Nav, footer, and page-header
+   conventions come from base.css; this file styles the case study's own
+   content: hero meta cards, stat grid, findings, recommendations, and
+   reflection sections, all built from the shared color/type variables.
+
+   Kept deliberately restrained: hairline borders instead of shadows on
+   plain content cards, orange reserved for the one or two numbers per
+   section that matter most, everything else carried by type weight and
+   whitespace — the same restraint base.css and about.css already use. */
+
+/* every section shares the site's one orange accent (previously each
+   section had its own color-coded accent — blue/green/purple — removed
+   per feedback in favor of a single consistent orange) */
+:root{
+  --sec-research: var(--orange);
+  --sec-findings: var(--orange);
+  --sec-recs: var(--orange);
+  --sec-principles: var(--orange);
+}
+
+.cs-wrap{
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* every content section (aside from the full-bleed hero banner) now shares
+   this same 800px column, so figures/videos line up flush with the text
+   above and below them instead of bleeding wider */
+.cs-bleed{
+  max-width: 800px;
+}
+
+/* ---------------- FULL-BLEED PHOTO MOMENTS (real event photography) ---------------- */
+/* these sit as top-level elements between sections (outside .cs-wrap), so
+   they span the full viewport with no extra markup gymnastics required */
+.cs-photo-band{
+  margin: 0;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  background: var(--ink);
+}
+.cs-photo-band img{
+  width: 100%;
+  height: clamp(260px, 42vw, 540px);
+  object-fit: cover;
+  display: block;
+}
+.cs-photo-band-caption{
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  padding: 28px 24px 26px;
+  background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.5) 65%, rgba(0,0,0,0.72) 100%);
+}
+.cs-photo-band-caption-inner{
+  max-width: 880px;
+  margin: 0 auto;
+}
+.cs-photo-band-eyebrow{
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.7);
+  margin: 0 0 6px;
+}
+.cs-photo-band-text{
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+  color: #fff;
+  margin: 0;
+  max-width: 620px;
+}
+@media (max-width: 760px){
+  .cs-photo-band img{ height: clamp(220px, 58vw, 340px); }
+  .cs-photo-band-text{ font-size: 14.5px; }
+}
+
+/* ---------------- HERO (photo sits behind the text as a z-index layer) ---------------- */
+.cs-hero{
+  position: relative;
+  overflow: hidden;
+  margin-top: -88px;
+  padding: 152px 0 64px;
+  isolation: isolate;
+}
+.cs-hero-bg{
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+.cs-hero-bg img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.cs-hero-bg::after{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(10,10,10,0.6) 0%, rgba(10,10,10,0.32) 45%, rgba(10,10,10,0.78) 100%);
+}
+.cs-hero-credit{
+  position: absolute;
+  right: 24px;
+  bottom: 16px;
+  font-size: 12px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.55);
+  z-index: 1;
+}
+.cs-hero > .cs-wrap{
+  position: relative;
+  z-index: 1;
+}
+.cs-back{
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
+  color: rgba(255,255,255,0.8);
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 28px;
+  transition: color 0.2s ease;
+}
+.cs-back:hover{ color: var(--orange); }
+
+.cs-sticker{
+  display: table;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 7px 16px;
+  font-size: 12.5px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--ink-soft);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.28);
+  transform: rotate(-3deg);
+  margin: 0 0 20px 4px;
+  transition: transform 0.25s ease;
+}
+.cs-sticker:hover{ transform: rotate(-6deg); }
+
+.cs-eyebrow{
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--ink-soft);
+  text-transform: uppercase;
+  margin: 0 0 10px;
+}
+.cs-hero .cs-eyebrow{ color: rgba(255,255,255,0.78); }
+
+.cs-title{
+  font-size: clamp(32px, 5.5vw, 56px);
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  margin: 0 0 20px;
+  line-height: 1.08;
+}
+.cs-hero .cs-title{ color: #fff; }
+
+.cs-sub{
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--ink-soft);
+  max-width: 700px;
+  margin: 0;
+}
+.cs-hero .cs-sub{ color: rgba(255,255,255,0.88); }
+
+.cs-meta-row{
+  margin-top: 48px;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1px;
+  background: rgba(255,255,255,0.22);
+  border: 1px solid rgba(255,255,255,0.28);
+  border-radius: 20px;
+  overflow: hidden;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+.cs-meta-card{
+  background: rgba(10,10,10,0.32);
+  padding: 20px 18px;
+}
+.cs-meta-label{
+  display: block;
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.68);
+  margin-bottom: 8px;
+}
+.cs-meta-value{
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+  color: #fff;
+}
+
+/* ---------------- SIDE NAV ---------------- */
+/* sits in the left gutter next to the centered 800px column; only shown
+   once the viewport is wide enough to fit it without crowding the content.
+   position:fixed so it never adds to document flow height (which was
+   pushing the Problem section down by the nav's own height). It stays
+   invisible (opacity:0) until a scroll observer confirms the hero has
+   scrolled out of view, so it can never float over the hero photo and
+   never "butts up" against it — it just fades in with room to spare once
+   you're past it.
+   Reset every property the global base.css `nav{...}` rule would otherwise
+   apply (pill background, blur, shadow, flex layout) since this is also a
+   bare <nav> element. */
+.cs-sidenav{
+  display: none;
+}
+@media (min-width: 1320px){
+  .cs-sidenav{
+    display: block;
+    position: fixed;
+    top: 160px;
+    left: calc(50% - 400px - 200px);
+    width: 160px;
+    max-width: none;
+    z-index: 90;
+    background: none;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    padding: 0;
+    overflow: visible;
+    isolation: auto;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.35s ease;
+  }
+  .cs-sidenav.is-visible{
+    opacity: 1;
+    pointer-events: auto;
+  }
+  .cs-sidenav::after{
+    display: none;
+  }
+  .cs-sidenav-back{
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    text-decoration: none;
+    color: var(--ink-soft);
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 28px;
+    transition: color 0.2s ease;
+  }
+  .cs-sidenav-back:hover{ color: var(--orange); }
+  .cs-sidenav-links{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .cs-sidenav-links a{
+    text-decoration: none;
+    color: var(--ink-soft);
+    font-size: 14px;
+    font-weight: 600;
+    transition: color 0.2s ease;
+  }
+  .cs-sidenav-links a:hover{ color: var(--ink); }
+  .cs-sidenav-links a.active{
+    color: var(--orange);
+  }
+}
+.cs-section[id]{ scroll-margin-top: 110px; }
+
+/* ---------------- SECTIONS ---------------- */
+.cs-section{
+  padding: 92px 0;
+}
+.cs-section.cs-alt{
+  background: var(--cream-deep);
+}
+.cs-section-head{
+  max-width: 760px;
+  margin-bottom: 44px;
+}
+.cs-section-head h2{
+  font-size: clamp(26px, 3.6vw, 36px);
+  font-weight: 800;
+  letter-spacing: -0.015em;
+  margin: 4px 0 0;
+}
+.cs-lede{
+  font-size: 17px;
+  color: var(--ink-soft);
+  margin: 16px 0 0;
+  line-height: 1.6;
+}
+.cs-body-text{
+  max-width: 820px;
+  color: var(--ink-soft);
+  font-size: 15.5px;
+  line-height: 1.65;
+  margin: 0;
+}
+.cs-body-text + .cs-body-text{ margin-top: 18px; }
+
+/* bolded key phrases inside running copy read darker than the surrounding
+   soft-gray body text, so a skim of just the bold parts still tells the
+   story */
+.cs-lede strong,
+.cs-body-text strong,
+.cs-issue p strong,
+.cs-impact-card p strong{
+  color: var(--ink);
+  font-weight: 700;
+}
+
+/* ---------------- FIGURES ---------------- */
+.cs-figure{
+  margin: 40px 0 0;
+}
+.cs-figure img{
+  width: 100%;
+  display: block;
+  border-radius: 16px;
+  border: 1px solid var(--line);
+}
+.cs-figure figcaption{
+  margin-top: 14px;
+  font-size: 13.5px;
+  color: var(--ink-soft);
+  line-height: 1.5;
+}
+
+/* ---------------- STAT GRID (research section) ---------------- */
+/* bold solid orange blocks — all four cards share the site's orange, with
+   a big tilted emoji per card that leans in a bit further on hover */
+.cs-stat-grid{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-top: 36px;
+}
+.cs-stat-card{
+  border-radius: 20px;
+  padding: 20px 22px;
+  background: var(--orange);
+}
+.cs-stat-num{
+  font-size: 40px;
+  font-weight: 800;
+  color: #fff;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+.cs-stat-label{
+  margin-top: 12px;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.9);
+  line-height: 1.4;
+}
+.cs-stat-emoji{
+  display: block;
+  font-size: 4.5em;
+  line-height: 1;
+  margin-top: 60px;
+  transform: rotate(-12deg);
+  transform-origin: left center;
+  transition: transform 0.25s ease;
+}
+.cs-stat-card:hover .cs-stat-emoji{
+  transform: rotate(-22deg) scale(1.08);
+}
+
+/* cards grow from a short starting height up to a shared, equal height as
+   they scroll into view — reuses the same .is-visible class the general
+   reveal-on-scroll observer already adds, just with higher specificity so
+   the transition list below (which includes height) wins over the
+   shared opacity/transform-only one. */
+.cs-stat-grid .cs-stat-card{
+  height: 130px;
+  overflow: hidden;
+  transition: opacity 0.5s ease, transform 0.5s ease, height 0.6s cubic-bezier(.2,.8,.2,1);
+}
+.cs-stat-grid .cs-stat-card.is-visible{
+  height: 290px;
+}
+@media (prefers-reduced-motion: reduce){
+  .cs-stat-grid .cs-stat-card{ height: 290px; }
+}
+
+.cs-method-list{
+  margin: 40px 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0 40px;
+}
+.cs-method-list li{
+  padding: 16px 0;
+  border-bottom: 1px solid var(--line);
+  font-size: 15px;
+  color: var(--ink-soft);
+  line-height: 1.5;
+}
+.cs-method-list strong{ color: var(--ink); font-weight: 700; }
+
+/* ---------------- DISCOVER SECTION — FIGJAM-STYLE CANVAS ---------------- */
+/* the Discover section is dressed up as a whiteboard: a dot-grid canvas
+   background, a decorative (non-functional) floating toolbar + cursor
+   pill, stat cards reskinned as colorful rotated sticky notes, the
+   method list turned into loose scattered note cards, and both figures
+   pinned to the board with a strip of washi tape. */
+#research{
+  position: relative;
+  padding: 128px 0;
+  background:
+    radial-gradient(rgba(0,0,0,0.16) 1.2px, transparent 1.2px) 0 0 / 24px 24px,
+    #FAFAFA;
+  overflow: hidden;
+}
+#research .cs-section-head{ margin-bottom: 64px; }
+
+/* live cursor — tracks the mouse while it's inside the Discover section,
+   like a real-time collaborator cursor on a whiteboard; JS drives
+   left/top, this just handles the look + the fade in/out */
+#research{ cursor: none; }
+.fj-cursor{
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--ink);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 6px 12px 6px 8px;
+  border-radius: 999px 999px 999px 4px;
+  box-shadow: 0 8px 18px rgba(0,0,0,0.18);
+  transform: rotate(-2deg);
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.15s ease;
+  will-change: left, top;
+}
+.fj-cursor.is-active{ opacity: 1; }
+.fj-cursor svg{ width: 13px; height: 13px; flex-shrink: 0; }
+@media (max-width: 640px){
+  #research{ cursor: auto; }
+}
+
+.fj-toolbar-wrap{
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 0 0 56px;
+  flex-wrap: wrap;
+}
+.fj-toolbar{
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 10px 24px rgba(0,0,0,0.1);
+}
+.fj-tool{
+  width: 32px;
+  height: 32px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ink-soft);
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease, transform 0.15s ease;
+}
+.fj-tool svg{ width: 17px; height: 17px; }
+.fj-tool:hover{ background: var(--cream-deep); color: var(--ink); }
+.fj-tool:active{ transform: scale(0.9); }
+.fj-tool:focus-visible{
+  outline: 2px solid var(--orange);
+  outline-offset: 2px;
+}
+.fj-tool.fj-tool-active{
+  background: var(--orange-soft);
+  color: var(--orange);
+}
+
+/* the fun little message that pops up when a tool is clicked */
+.fj-toolbar-msg{
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink-soft);
+  opacity: 0;
+  transform: translateY(-4px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+.fj-toolbar-msg.is-visible{
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ---- stat cards -> sticky notes ---- */
+#research .cs-stat-grid{ margin-top: 12px; gap: 26px; }
+#research .cs-stat-card{
+  position: relative;
+  padding: 26px 26px;
+  border-radius: 3px 3px 12px 12px;
+  box-shadow: 0 16px 24px -10px rgba(26,26,26,0.28);
+}
+#research .cs-stat-card::before{
+  content: "";
+  position: absolute;
+  top: -9px;
+  left: 50%;
+  width: 44px;
+  height: 18px;
+  background: rgba(255,255,255,0.6);
+  border: 1px solid rgba(255,255,255,0.75);
+  transform: translateX(-50%) rotate(-3deg);
+  border-radius: 2px;
+}
+#research .cs-stat-num,
+#research .cs-stat-label{
+  color: var(--ink);
+  text-shadow: none;
+}
+#research .cs-stat-label{ color: rgba(26,26,26,0.72); font-weight: 700; }
+#research .cs-stat-card[data-reveal]{ cursor: pointer; }
+#research .cs-stat-hint{
+  position: absolute;
+  right: 14px;
+  bottom: 12px;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  color: rgba(26,26,26,0.5);
+}
+
+/* ---- click a stat card to reveal its supporting material — hidden by
+   default, shown/hidden by JS via .is-open (see initResearchReveals) ---- */
+.cs-reveal-target{ display: none; }
+/* .cs-method-list's own "display: flex" rule (#research .cs-method-list)
+   outranks the generic .cs-reveal-target rule above, so it needs an
+   equally-specific override here to actually stay hidden until opened */
+#research .cs-method-list.cs-reveal-target{ display: none; }
+#research .cs-method-list.cs-reveal-target.is-open{ display: flex; }
+#marketReveal.is-open{ display: block; }
+#flowReveal.is-open{ display: block; }
+
+#research .cs-stat-grid .cs-stat-card:nth-child(1){ background: var(--orange-soft); transform: translateY(14px) scale(0.98) rotate(-3deg); }
+#research .cs-stat-grid .cs-stat-card:nth-child(2){ background: var(--orange-soft); transform: translateY(14px) scale(0.98) rotate(2deg); }
+#research .cs-stat-grid .cs-stat-card:nth-child(3){ background: var(--orange-soft); transform: translateY(14px) scale(0.98) rotate(-2deg); }
+#research .cs-stat-grid .cs-stat-card:nth-child(4){ background: var(--orange-soft); transform: translateY(14px) scale(0.98) rotate(3deg); }
+#research .cs-stat-grid .cs-stat-card.is-visible:nth-child(1){ transform: rotate(-3deg); }
+#research .cs-stat-grid .cs-stat-card.is-visible:nth-child(2){ transform: rotate(2deg); }
+#research .cs-stat-grid .cs-stat-card.is-visible:nth-child(3){ transform: rotate(-2deg); }
+#research .cs-stat-grid .cs-stat-card.is-visible:nth-child(4){ transform: rotate(3deg); }
+#research .cs-stat-card:hover{ z-index: 5; }
+#research .cs-stat-grid .cs-stat-card.is-visible:hover{ transform: rotate(0deg) translateY(-6px) !important; }
+
+/* ---- session-only drag ----
+   Everything on the board (stickies, note cards, photos) can be picked
+   up and moved around by the visitor — purely client-side, nothing is
+   saved, so a refresh puts it all straight back to the default layout
+   and no other visitor ever sees the rearranged version.
+   Stat cards keep their tilt via --drag-x/--drag-y/--drag-rot custom
+   properties (rather than overwriting `transform` directly) because
+   their hover state already sets `transform ... !important` above —
+   variables sidestep that fight entirely. Note cards and photos don't
+   have an !important hover rule, so those are moved with a plain inline
+   transform from JS instead. */
+#research .fj-draggable{
+  cursor: grab;
+  touch-action: none;
+  user-select: none;
+}
+#research .cs-stat-card.fj-moved,
+#research .cs-stat-grid .cs-stat-card.fj-moved:hover{
+  transform: translate(var(--drag-x, 0px), var(--drag-y, 0px)) rotate(var(--drag-rot, 0deg)) !important;
+}
+#research .cs-stat-card.is-dragging,
+#research .cs-stat-grid .cs-stat-card.is-dragging:hover{
+  transition: none !important;
+  z-index: 999 !important;
+  cursor: grabbing !important;
+}
+#research .cs-method-list li.is-dragging,
+#research .cs-figure.is-dragging{
+  transition: none !important;
+  z-index: 999 !important;
+  cursor: grabbing !important;
+}
+
+/* ---- method list -> scattered white note cards ---- */
+#research .cs-method-list{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 56px 44px;
+  margin-top: 24px;
+}
+#research .cs-method-list li{
+  position: relative;
+  list-style: none;
+  flex: 1 1 260px;
+  max-width: 340px;
+  border-bottom: none;
+  background: #fff;
+  padding: 22px 22px 20px 26px;
+  border-radius: 3px 12px 12px 12px;
+  box-shadow: 0 12px 20px -10px rgba(26,26,26,0.22);
+  font-size: 14.5px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+#research .cs-method-list li::before{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 6px;
+  height: 100%;
+  border-radius: 3px 0 0 3px;
+}
+/* uneven rotation + vertical drift per card, so the cluster reads as
+   loosely tossed onto the board rather than a tidy aligned grid */
+#research .cs-method-list li:nth-child(1){ transform: rotate(-6deg) translate(-4px, -10px); }
+#research .cs-method-list li:nth-child(2){ transform: rotate(4deg) translate(6px, 14px); flex-basis: 300px; }
+#research .cs-method-list li:nth-child(3){ transform: rotate(-3deg) translate(-10px, 8px); flex-basis: 230px; }
+#research .cs-method-list li:nth-child(4){ transform: rotate(6deg) translate(8px, -14px); }
+#research .cs-method-list li:nth-child(1)::before{ background: var(--orange); }
+#research .cs-method-list li:nth-child(2)::before{ background: var(--orange); }
+#research .cs-method-list li:nth-child(3)::before{ background: var(--orange); }
+#research .cs-method-list li:nth-child(4)::before{ background: var(--orange); }
+#research .cs-method-list li:hover{
+  transform: rotate(0deg) translate(0, -4px);
+  box-shadow: 0 18px 28px -10px rgba(26,26,26,0.28);
+  z-index: 5;
+}
+
+/* ---- figures -> pinned photos with washi tape, side by side between
+   the stat stickies and the method-list notes ---- */
+#research .cs-figure-row{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 40px;
+  margin: 72px 0;
+}
+#research .cs-figure{
+  position: relative;
+  flex: 1 1 320px;
+  max-width: 360px;
+  margin: 0;
+  background: #fff;
+  padding: 16px 16px 20px;
+  border-radius: 4px;
+  box-shadow: 0 20px 34px -14px rgba(26,26,26,0.32);
+}
+#research .cs-figure img{
+  border-radius: 2px;
+  border: none;
+}
+#research .cs-figure::before{
+  content: "";
+  position: absolute;
+  top: -12px;
+  left: 40px;
+  width: 74px;
+  height: 26px;
+  background: rgba(250,140,5,0.28);
+  border: 1px solid rgba(255,255,255,0.5);
+  transform: rotate(-4deg);
+  box-shadow: 0 3px 6px rgba(0,0,0,0.08);
+}
+#research .cs-figure:nth-of-type(1){ transform: rotate(-4deg); }
+#research .cs-figure:nth-of-type(2){ transform: rotate(3.5deg); }
+#research .cs-figure:nth-of-type(2)::before{
+  left: auto;
+  right: 44px;
+  background: rgba(250,140,5,0.28);
+}
+#research .cs-figure figcaption{
+  color: var(--ink-soft);
+}
+
+/* ---- decorative FigJam-style comment pin — a classic Figma comment
+   marker: a dark teardrop badge (rounded except one pointed corner)
+   with a colored circular avatar inset in the middle ---- */
+#research .fj-comment{
+  position: absolute;
+  bottom: 8px;
+  left: -130px;
+  z-index: 6;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  gap: 8px;
+}
+#research .fj-comment-pin{
+  flex-shrink: 0;
+  width: 46px;
+  height: 46px;
+  padding: 5px;
+  border-radius: 50% 50% 4px 50%;
+  background: var(--ink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.28);
+  cursor: pointer;
+}
+#research .fj-comment-avatar{
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: var(--orange);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  font-weight: 800;
+}
+#research .fj-comment-bubble{
+  max-width: 180px;
+  background: #F4F4F5;
+  color: var(--ink);
+  font-size: 12.5px;
+  font-weight: 600;
+  line-height: 1.4;
+  text-align: center;
+  padding: 9px 13px;
+  border-radius: 14px;
+  border: 1px solid rgba(0,0,0,0.06);
+  box-shadow: 0 10px 22px rgba(0,0,0,0.14);
+  opacity: 0;
+  transform: translateY(-4px);
+  pointer-events: none;
+  transition: opacity 0.18s ease, transform 0.18s ease;
+}
+#research .fj-comment:hover .fj-comment-bubble,
+#research .fj-comment:focus-within .fj-comment-bubble{
+  opacity: 1;
+  transform: translateY(0);
+}
+@media (max-width: 640px){
+  #research .fj-comment{ position: static; margin-top: 12px; }
+}
+
+/* ---- standalone comment under the stat cards — a plain in-flow
+   invitation to explore the board, not pinned to a photo, and always
+   visible rather than hover-gated like the SSO callout ---- */
+#research .fj-comment-static{
+  position: static;
+  flex-direction: row;
+  align-items: center;
+  gap: 14px;
+  margin: 32px 0 0;
+}
+#research .fj-comment-static .fj-comment-bubble{
+  opacity: 1;
+  transform: none;
+  pointer-events: auto;
+  text-align: left;
+  max-width: 320px;
+  border-radius: 4px 14px 14px 14px;
+}
+@media (max-width: 640px){
+  #research .fj-comment-static{ margin-top: 24px; }
+}
+
+@media (max-width: 640px){
+  #research .fj-cursor{ display: none; }
+  #research .cs-figure-row{ flex-direction: column; align-items: center; }
+  #research .cs-method-list{ flex-direction: column; }
+  #research .cs-method-list li{ max-width: none; }
+}
+
+/* ---------------- RESEARCH NOTE (styled like an actual tilted sticky note) ---------------- */
+.cs-note{
+  margin-top: 40px;
+  width: 260px;
+  aspect-ratio: 1 / 1;
+  padding: 18px 20px;
+  background: var(--orange-soft);
+  background-image: linear-gradient(rgba(255,255,255,0.25), rgba(255,255,255,0));
+  border: none;
+  border-radius: 2px;
+  box-shadow: 0 16px 28px rgba(0,0,0,0.18), 0 3px 6px rgba(0,0,0,0.10);
+  position: relative;
+  transform: rotate(-2.5deg);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  overflow: hidden;
+}
+.cs-note:hover{
+  transform: rotate(-1deg) scale(1.02);
+  box-shadow: 0 20px 32px rgba(0,0,0,0.2), 0 4px 8px rgba(0,0,0,0.1);
+}
+.cs-note-label{
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--orange);
+  margin-bottom: 8px;
+}
+.cs-note p{
+  margin: 0;
+  font-size: 13px;
+  color: var(--ink);
+  line-height: 1.5;
+}
+
+/* tilts the opposite direction so two notes on the same page don't read
+   as identical stickers */
+.cs-note--right{ transform: rotate(2.5deg); }
+.cs-note--right:hover{ transform: rotate(1deg) scale(1.02); }
+
+/* pulls the note down over the top of whatever figure follows it, so it
+   reads as a note physically stuck onto the photo below rather than a
+   separate card in the layout */
+.cs-note--overlap{
+  margin-left: 48px;
+  margin-bottom: -40px;
+  z-index: 3;
+}
+@media (max-width: 760px){
+  .cs-note--overlap{ margin-left: 16px; margin-bottom: -28px; }
+}
+
+/* ---------------- FINDINGS ---------------- */
+/* The four issue write-ups sit as loose white papers, scattered at a
+   slight tilt, directly on the page — no desk backdrop, no decorative
+   scraps, just the papers themselves. */
+.cs-desk{
+  position: relative;
+  margin-top: 88px;
+  padding: 40px 16px 120px;
+}
+.cs-desk-grid{
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 260px));
+  justify-content: center;
+  align-items: start;
+  gap: 130px 100px;
+}
+
+@media (max-width: 640px){
+  .cs-desk{ padding: 24px 8px 60px; }
+  .cs-desk-grid{ grid-template-columns: minmax(0, 260px); gap: 96px; }
+}
+
+/* each finding is a clean, flat card — scattered at a slight tilt like
+   the rest of the fan layout, but styled like the site's other digital
+   cards (white, bordered, rounded) rather than a physical paper */
+.cs-paper-card{
+  position: relative;
+  z-index: 2;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 26px;
+  box-shadow: 0 10px 24px rgba(0,0,0,0.06);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.cs-desk-grid .cs-paper-card:nth-child(1){ transform: rotate(-5deg) translateY(8px); }
+.cs-desk-grid .cs-paper-card:nth-child(2){ transform: rotate(4deg) translateY(-10px); }
+.cs-desk-grid .cs-paper-card:nth-child(3){ transform: rotate(3deg) translateY(14px); }
+.cs-desk-grid .cs-paper-card:nth-child(4){ transform: rotate(-4deg) translateY(-4px); }
+.cs-desk-grid .cs-paper-card:nth-child(1):hover{ transform: rotate(-5deg) translateY(-2px); box-shadow: 0 20px 40px rgba(0,0,0,0.12); z-index: 5; }
+.cs-desk-grid .cs-paper-card:nth-child(2):hover{ transform: rotate(4deg) translateY(-22px); box-shadow: 0 20px 40px rgba(0,0,0,0.12); z-index: 5; }
+.cs-desk-grid .cs-paper-card:nth-child(3):hover{ transform: rotate(3deg) translateY(2px); box-shadow: 0 20px 40px rgba(0,0,0,0.12); z-index: 5; }
+.cs-desk-grid .cs-paper-card:nth-child(4):hover{ transform: rotate(-4deg) translateY(-18px); box-shadow: 0 20px 40px rgba(0,0,0,0.12); z-index: 5; }
+
+.cs-paper-tab{
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 10.5px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #fff;
+  background: var(--orange);
+  margin-bottom: 12px;
+}
+.cs-paper-card[data-issue-num="02"] .cs-paper-tab{ background: var(--orange); }
+.cs-paper-card[data-issue-num="03"] .cs-paper-tab{ background: var(--orange); }
+.cs-paper-card[data-issue-num="04"] .cs-paper-tab{ background: var(--orange); }
+
+.cs-paper-title{
+  margin: 0 0 10px;
+  font-size: 17px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+  color: var(--ink);
+}
+.cs-paper-stat{
+  margin: 0 0 10px;
+  font-size: 14.5px;
+  font-weight: 800;
+  color: var(--ink);
+  line-height: 1.4;
+}
+.cs-paper-body{
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--ink-soft);
+}
+.cs-paper-body strong{ color: var(--ink); }
+
+/* iMessage-style quote bubble — floats near the bottom corner of the
+   paper it belongs to, off to the side so it never covers the paper's
+   own text. Counter-rotated per card so it reads level even though the
+   paper underneath sits at a tilt. */
+.cs-imsg{
+  position: absolute;
+  top: 100%;
+  margin-top: -8px;
+  right: 4px;
+  z-index: 6;
+  max-width: 66%;
+}
+.cs-desk-grid .cs-paper-card:nth-child(2) .cs-imsg{ transform: rotate(-4deg); }
+.cs-desk-grid .cs-paper-card:nth-child(3) .cs-imsg{ transform: rotate(-3deg); }
+.cs-desk-grid .cs-paper-card:nth-child(4) .cs-imsg{ transform: rotate(4deg); }
+.cs-imsg-bubble{
+  display: inline-block;
+  margin: 0;
+  padding: 10px 14px;
+  background: var(--imsg-grey);
+  color: var(--ink);
+  font-size: 13px;
+  font-style: normal;
+  line-height: 1.4;
+  border-radius: 17px;
+  border-bottom-left-radius: 5px;
+  max-width: 100%;
+  box-shadow: 0 12px 24px rgba(26,26,26,0.22);
+}
+.cs-imsg-cite{
+  display: block;
+  margin-top: 6px;
+  font-style: normal;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--ink-soft);
+  text-shadow: 0 1px 2px rgba(255,255,255,0.6);
+}
+@media (max-width: 640px){
+  .cs-imsg{ position: static; margin: 16px 0 0; max-width: 100%; transform: none !important; }
+}
+
+/* ---------------- RECOMMENDATIONS ---------------- */
+.cs-rec-grid{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-top: 36px;
+}
+.cs-rec-card{
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 26px;
+}
+.cs-rec-card .cs-issue-num{ display: block; margin-bottom: 12px; }
+.cs-rec-card h4{
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  margin: 0 0 8px;
+}
+.cs-rec-card p{
+  margin: 0;
+  font-size: 14.5px;
+  color: var(--ink-soft);
+  line-height: 1.55;
+}
+
+/* ---------------- PRINCIPLES (Laws of UX) ---------------- */
+.cs-law-grid{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 36px;
+}
+.cs-law-card{
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 24px;
+}
+.cs-law-icon{
+  width: 40px;
+  height: 40px;
+  margin-bottom: 16px;
+}
+.cs-law-icon svg{
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.cs-law-card h4{
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: -0.005em;
+  margin: 0 0 10px;
+}
+.cs-law-card h4 a{
+  color: var(--ink);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+.cs-law-card h4 a:hover{
+  color: var(--orange);
+  text-decoration: underline;
+}
+.cs-law-card p{
+  margin: 0;
+  font-size: 14px;
+  color: var(--ink-soft);
+  line-height: 1.55;
+}
+.cs-section-head a{
+  color: var(--orange);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* ---------------- PER-SECTION ACCENT COLORS ---------------- */
+#research .cs-eyebrow{ color: var(--sec-research); }
+#findings .cs-eyebrow{ color: var(--sec-findings); }
+#recommendations .cs-eyebrow{ color: var(--sec-recs); }
+#principles .cs-eyebrow{ color: var(--sec-principles); }
+#principles .cs-section-head a{ color: var(--sec-principles); }
+
+#findings .cs-issue-num{ color: var(--sec-findings); }
+#findings .cs-issue .cs-issue-num{ color: rgba(255,255,255,0.85); }
+#recommendations .cs-rec-card .cs-issue-num{ color: var(--sec-recs); }
+#principles .cs-law-card h4 a:hover{ color: var(--sec-principles); }
+
+.cs-subsection{
+  margin-top: 56px;
+  padding-top: 40px;
+  border-top: 1px solid var(--line);
+}
+.cs-subsection-title{
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin: 0 0 16px;
+}
+.cs-subsection .cs-body-text{ margin-top: -4px; }
+
+.cs-flow-video{
+  margin: 40px 0 0;
+}
+.cs-flow-video video{
+  width: 100%;
+  display: block;
+  border-radius: 16px;
+  background: var(--white);
+}
+.cs-flow-video figcaption{
+  margin-top: 14px;
+  font-size: 13.5px;
+  color: var(--ink-soft);
+  line-height: 1.5;
+}
+
+/* ---------------- BEFORE / AFTER COMPARISON ---------------- */
+.cs-compare{
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 48px;
+}
+.cs-compare-item{
+  margin: 0;
+}
+.cs-compare-tag{
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 7px 16px;
+  border-radius: 999px;
+  margin-bottom: 16px;
+}
+.cs-compare-before .cs-compare-tag{
+  background: var(--cream-deep);
+  color: var(--ink-soft);
+}
+.cs-compare-after .cs-compare-tag{
+  background: var(--orange);
+  color: var(--white);
+}
+.cs-compare-item video{
+  width: 100%;
+  display: block;
+  border-radius: 16px;
+  background: var(--cream-deep);
+}
+.cs-compare-item figcaption{
+  margin-top: 14px;
+  font-size: 13.5px;
+  color: var(--ink-soft);
+  line-height: 1.5;
+}
+@media (max-width: 760px){
+  .cs-compare{ grid-template-columns: 1fr; gap: 40px; }
+}
+
+/* ---------------- PHOTO PAIR (two atmospheric event shots side by side) ---------------- */
+.cs-photo-pair{
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.cs-photo-pair figure{
+  margin: 0;
+}
+.cs-photo-pair img{
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  display: block;
+  border-radius: 16px;
+  border: 1px solid var(--line);
+}
+.cs-photo-pair figcaption{
+  margin-top: 12px;
+  font-size: 13px;
+  color: var(--ink-soft);
+  line-height: 1.5;
+}
+@media (max-width: 760px){
+  .cs-photo-pair{ grid-template-columns: 1fr; gap: 28px; }
+}
+
+.cs-small-recs ul{
+  margin: 0;
+  padding-left: 20px;
+}
+.cs-small-recs li{
+  margin-bottom: 10px;
+  font-size: 14.5px;
+  color: var(--ink-soft);
+  line-height: 1.55;
+}
+
+/* ---------------- PROJECTED IMPACT ---------------- */
+.cs-impact-grid{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-top: 36px;
+}
+.cs-impact-card{
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 26px;
+}
+.cs-impact-card .cs-issue-num{ display: block; margin-bottom: 14px; }
+.cs-impact-card--wide{
+  grid-column: 1 / -1;
+  background: var(--cream-deep);
+}
+.cs-impact-card--wide .cs-impact-after{ font-size: 30px; }
+.cs-impact-card--wide .cs-impact-arrow{
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+.cs-impact-card--wide .cs-impact-caption{ max-width: 680px; margin-top: 12px; }
+.cs-impact-values{
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+.cs-impact-before{
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--ink-soft);
+  text-decoration: line-through;
+  text-decoration-color: var(--line);
+}
+.cs-impact-arrow{
+  font-size: 16px;
+  color: var(--ink-soft);
+}
+.cs-impact-after{
+  font-size: 26px;
+  font-weight: 800;
+  color: var(--orange);
+  letter-spacing: -0.01em;
+}
+.cs-impact-after.cs-impact-qual{
+  font-size: 16.5px;
+  font-weight: 700;
+  letter-spacing: -0.005em;
+}
+.cs-impact-metric-label{
+  margin: -4px 0 12px;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--ink-soft);
+  line-height: 1.4;
+}
+.cs-impact-caption{
+  margin: 0;
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  color: var(--ink-soft);
+  line-height: 1.4;
+}
+
+/* ---------------- IMPACT: INSTAGRAM POSTS ---------------- */
+.cs-ig-row{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 64px;
+  padding: 24px 0 36px;
+}
+.cs-ig-post{
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 14px 30px rgba(0,0,0,0.1);
+  width: 240px;
+  flex-shrink: 0;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.cs-ig-row .cs-ig-post:nth-child(1){
+  transform: rotate(-7deg) translateY(20px);
+  margin-right: -22px;
+  z-index: 1;
+}
+.cs-ig-row .cs-ig-post:nth-child(2){
+  transform: rotate(2deg) translateY(-12px);
+  z-index: 3;
+}
+.cs-ig-row .cs-ig-post:nth-child(3){
+  transform: rotate(7deg) translateY(20px);
+  margin-left: -22px;
+  z-index: 2;
+}
+.cs-ig-row .cs-ig-post:nth-child(1):hover{
+  transform: rotate(-7deg) translateY(6px);
+  box-shadow: 0 22px 38px rgba(0,0,0,0.16);
+  z-index: 5;
+}
+.cs-ig-row .cs-ig-post:nth-child(2):hover{
+  transform: rotate(2deg) translateY(-26px);
+  box-shadow: 0 22px 38px rgba(0,0,0,0.16);
+  z-index: 5;
+}
+.cs-ig-row .cs-ig-post:nth-child(3):hover{
+  transform: rotate(7deg) translateY(6px);
+  box-shadow: 0 22px 38px rgba(0,0,0,0.16);
+  z-index: 5;
+}
+.cs-ig-header{
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 10px 12px;
+}
+.cs-ig-avatar{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--orange);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 800;
+  flex-shrink: 0;
+}
+.cs-ig-handle{
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--ink);
+}
+.cs-ig-photo{
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+}
+.cs-ig-photo img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.cs-ig-actions{
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 10px 12px;
+  color: var(--ink);
+}
+.cs-ig-actions svg{
+  width: 20px;
+  height: 20px;
+}
+.cs-ig-caption{
+  margin: 20px 0 0;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: -0.005em;
+  color: var(--ink);
+}
+@media (max-width: 760px){
+  .cs-ig-row{ flex-direction: column; padding: 12px 0; }
+  .cs-ig-post{ width: 100%; max-width: 280px; }
+  .cs-ig-row .cs-ig-post:nth-child(1),
+  .cs-ig-row .cs-ig-post:nth-child(2),
+  .cs-ig-row .cs-ig-post:nth-child(3){
+    margin: -14px 0 0;
+    translate: none;
+  }
+  .cs-ig-row .cs-ig-post:nth-child(1){ transform: rotate(-4deg); }
+  .cs-ig-row .cs-ig-post:nth-child(2){ transform: rotate(1deg); margin-top: -14px; }
+  .cs-ig-row .cs-ig-post:nth-child(3){ transform: rotate(4deg); }
+}
+
+/* ---------------- TOOLKIT ---------------- */
+.cs-toolkit-grid{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-top: 36px;
+}
+.cs-toolkit-card{
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 24px;
+}
+.cs-toolkit-badge,
+.cs-toolkit-logo{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  margin-bottom: 16px;
+}
+.cs-toolkit-badge{
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+.cs-toolkit-logo{
+  object-fit: contain;
+  background: var(--white);
+  border: 1px solid var(--line);
+  padding: 4px;
+}
+.cs-toolkit-badge-1{ background: var(--orange-soft); color: var(--orange); }
+.cs-toolkit-badge-2{ background: var(--orange-soft); color: var(--orange); }
+.cs-toolkit-badge-3{ background: var(--orange-soft); color: var(--orange); }
+.cs-toolkit-badge-4{ background: var(--orange-soft); color: var(--orange); }
+.cs-toolkit-name{
+  font-size: 17px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  margin: 0 0 8px;
+}
+.cs-toolkit-desc{
+  font-size: 13.5px;
+  color: var(--ink-soft);
+  line-height: 1.5;
+  margin: 0;
+}
+@media (max-width: 860px){
+  .cs-toolkit-grid{ grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 520px){
+  .cs-toolkit-grid{ grid-template-columns: 1fr; }
+}
+
+/* ---------------- REFLECTION ---------------- */
+.cs-reflection .cs-body-text{
+  max-width: 820px;
+  font-size: 16px;
+}
+.cs-pull{
+  margin: 32px 0 0;
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--ink);
+  max-width: 760px;
+  line-height: 1.5;
+  letter-spacing: -0.005em;
+}
+.cs-signoff{
+  margin-top: 48px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ink-soft);
+}
+/* ghost version of the site's primary pill button (same shape/padding
+   as .say-hi / .see-all, solid-ink background) — outlined instead of
+   filled, and it fills in solid orange on hover */
+.cs-surprise-trigger{
+  all: unset;
+  display: inline-block;
+  cursor: pointer;
+  margin-left: 6px;
+  background: transparent;
+  color: var(--orange);
+  border: 1.5px solid var(--orange);
+  padding: 8px 20px;
+  border-radius: 999px;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+.cs-surprise-trigger:hover{
+  background: var(--orange);
+  color: #fff;
+}
+
+/* ---------------- REVEAL ON SCROLL ---------------- */
+.cs-section,
+.cs-reveal{
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.cs-section.is-visible,
+.cs-reveal.is-visible{
+  opacity: 1;
+  transform: none;
+}
+.cs-hero{ opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce){
+  .cs-section,
+  .cs-reveal{ opacity: 1; transform: none; transition: none; }
+}
+
+/* staggered pop-in for card grids — each card fades/rises in slightly
+   after the one before it, instead of the whole grid appearing at once */
+.cs-meta-card,
+.cs-stat-card,
+.cs-rec-card,
+.cs-impact-card,
+.cs-law-card,
+.cs-toolkit-card,
+.cs-ig-post,
+.cs-paper-card{
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+.cs-meta-card,
+.cs-stat-card,
+.cs-rec-card,
+.cs-impact-card,
+.cs-law-card,
+.cs-toolkit-card,
+.cs-ig-post{
+  transform: translateY(14px) scale(0.98);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.cs-meta-card.is-visible,
+.cs-stat-card.is-visible,
+.cs-rec-card.is-visible,
+.cs-impact-card.is-visible,
+.cs-law-card.is-visible,
+.cs-toolkit-card.is-visible,
+.cs-ig-post.is-visible{
+  opacity: 1;
+  transform: none;
+}
+.cs-paper-card.is-visible{ opacity: 1; }
+.cs-meta-row .cs-meta-card:nth-child(1),
+.cs-stat-grid .cs-stat-card:nth-child(1),
+.cs-rec-grid .cs-rec-card:nth-child(1),
+.cs-impact-grid .cs-impact-card:nth-child(1),
+.cs-law-grid .cs-law-card:nth-child(1),
+.cs-toolkit-grid .cs-toolkit-card:nth-child(1),
+.cs-ig-row .cs-ig-post:nth-child(1),
+.cs-desk-grid .cs-paper-card:nth-child(1){ transition-delay: 0ms; }
+.cs-meta-row .cs-meta-card:nth-child(2),
+.cs-stat-grid .cs-stat-card:nth-child(2),
+.cs-rec-grid .cs-rec-card:nth-child(2),
+.cs-impact-grid .cs-impact-card:nth-child(2),
+.cs-law-grid .cs-law-card:nth-child(2),
+.cs-toolkit-grid .cs-toolkit-card:nth-child(2),
+.cs-ig-row .cs-ig-post:nth-child(2),
+.cs-desk-grid .cs-paper-card:nth-child(2){ transition-delay: 70ms; }
+.cs-meta-row .cs-meta-card:nth-child(3),
+.cs-stat-grid .cs-stat-card:nth-child(3),
+.cs-rec-grid .cs-rec-card:nth-child(3),
+.cs-impact-grid .cs-impact-card:nth-child(3),
+.cs-law-grid .cs-law-card:nth-child(3),
+.cs-toolkit-grid .cs-toolkit-card:nth-child(3),
+.cs-ig-row .cs-ig-post:nth-child(3),
+.cs-desk-grid .cs-paper-card:nth-child(3){ transition-delay: 140ms; }
+.cs-meta-row .cs-meta-card:nth-child(4),
+.cs-stat-grid .cs-stat-card:nth-child(4),
+.cs-rec-grid .cs-rec-card:nth-child(4),
+.cs-impact-grid .cs-impact-card:nth-child(4),
+.cs-law-grid .cs-law-card:nth-child(4),
+.cs-toolkit-grid .cs-toolkit-card:nth-child(4),
+.cs-desk-grid .cs-paper-card:nth-child(4){ transition-delay: 210ms; }
+.cs-meta-row .cs-meta-card:nth-child(5),
+.cs-impact-grid .cs-impact-card:nth-child(5),
+.cs-law-grid .cs-law-card:nth-child(5){ transition-delay: 280ms; }
+.cs-law-grid .cs-law-card:nth-child(6){ transition-delay: 350ms; }
+@media (prefers-reduced-motion: reduce){
+  .cs-meta-card, .cs-stat-card, .cs-rec-card, .cs-impact-card, .cs-law-card, .cs-toolkit-card, .cs-ig-post, .cs-paper-card{
+    opacity: 1; transform: none; transition: none;
+  }
+}
+
+/* ---------------- RESPONSIVE ---------------- */
+@media (max-width: 900px){
+  .cs-meta-row{ grid-template-columns: repeat(3, 1fr); }
+  .cs-law-grid{ grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 760px){
+  .cs-meta-row{ grid-template-columns: repeat(2, 1fr); }
+  .cs-stat-grid{ grid-template-columns: repeat(2, 1fr); }
+  .cs-method-list{ grid-template-columns: 1fr; }
+  .cs-rec-grid{ grid-template-columns: 1fr; }
+  .cs-impact-grid{ grid-template-columns: 1fr; }
+  .cs-law-grid{ grid-template-columns: 1fr; }
+  .cs-hero{ padding: 132px 0 44px; }
+  .cs-section{ padding: 60px 0; }
+  .cs-section-head{ margin-bottom: 32px; }
+}

@@ -1,0 +1,167 @@
+/* Projects page — tag filter pills, sort dropdown, and the project card
+   grid (thumbnail + tag + title + date). Nav, footer, and page-header
+   styles come from base.css. */
+
+  /* ---------------- FILTER / SORT BAR ---------------- */
+  .control-bar{
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 4px 24px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .tag-bar{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .tag-pill{
+    border: 1px solid var(--line);
+    background: var(--white);
+    color: var(--ink);
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 8px 16px;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
+  }
+  .tag-pill:hover{ transform: translateY(-1px); border-color: rgba(250,140,5,0.4); }
+  .tag-pill.active{
+    background: var(--ink);
+    color: var(--white);
+    border-color: var(--ink);
+  }
+  .sort-select{
+    appearance: none;
+    -webkit-appearance: none;
+    border: 1px solid var(--line);
+    background: var(--white) url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="8" viewBox="0 0 12 8"><path d="M1 1l5 5 5-5" stroke="%231A1A1A" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>') no-repeat right 14px center;
+    color: var(--ink);
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 9px 38px 9px 16px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .empty-state{
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 60px 24px;
+    color: var(--ink-soft);
+    font-size: 15px;
+  }
+
+  /* ---------------- GALLERY GRID ---------------- */
+  .grid{
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 24px 100px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px 32px;
+  }
+  @media (max-width: 860px){
+    .grid{ grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 560px){
+    .grid{ grid-template-columns: 1fr; }
+  }
+
+  .p-card{
+    display: block;
+    text-decoration: none;
+    color: inherit;
+  }
+  .p-thumb{
+    position: relative;
+    aspect-ratio: 1 / 1;
+    border-radius: 28px;
+    overflow: hidden;
+    box-shadow: 0 10px 24px rgba(0,0,0,0.08);
+    transition: transform 0.3s cubic-bezier(.2,.8,.2,1), box-shadow 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .p-card:hover .p-thumb{
+    transform: translateY(-6px);
+    box-shadow: 0 22px 40px rgba(0,0,0,0.16);
+  }
+  .p-thumb svg{ width: 62%; height: 62%; }
+  .p-thumb img{
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .p-tag{
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    z-index: 2;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--ink);
+    background: rgba(255,255,255,0.85);
+    backdrop-filter: blur(6px);
+    padding: 5px 12px;
+    border-radius: 999px;
+    letter-spacing: 0.02em;
+    border: 1px solid rgba(0,0,0,0.06);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  }
+
+  .p-meta{
+    margin-top: 18px;
+    text-align: center;
+  }
+  .p-title{
+    font-size: 19px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+  .p-date{
+    margin-top: 3px;
+    font-size: 14px;
+    color: var(--ink-soft);
+  }
+
+  /* ---------------- COMING SOON CARDS ---------------- */
+  /* real projects without a case study page yet — not clickable */
+  .p-card-soon{ cursor: default; }
+  .p-card-soon .p-date{ color: var(--orange); font-weight: 700; }
+
+  /* ---------------- PLACEHOLDER CARDS ---------------- */
+  /* fill empty slots up to the minimum grid size; never clickable,
+     always visually distinct from real project cards */
+  .p-card-placeholder{ cursor: default; }
+  .p-thumb-placeholder{
+    background: repeating-linear-gradient(135deg, #F4F4F6, #F4F4F6 10px, #EBEBEF 10px, #EBEBEF 20px);
+    border: 1.5px dashed rgba(26,26,26,0.16);
+    box-shadow: none;
+    color: rgba(26,26,26,0.22);
+  }
+  .p-card-placeholder:hover .p-thumb-placeholder{
+    transform: none;
+    box-shadow: none;
+  }
+  .p-thumb-placeholder svg{ width: 30%; height: 30%; }
+  .p-tag-placeholder{
+    background: rgba(255,255,255,0.6);
+    color: var(--ink-soft);
+  }
+  .p-title-placeholder, .p-date-placeholder{
+    color: var(--ink-soft);
+    opacity: 0.55;
+  }
+
+
+/* this page's footer sits closer to the content above it than other pages */
+.site-footer{ margin-top: 20px; }

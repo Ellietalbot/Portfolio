@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rethinking Ticket Buying — Ellie Talbot</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/ticketing-case-study.css">
+</head>
+<body>
+
+  <div class="nav-wrap">
+    <div class="nav-glow"></div>
+    <nav>
+      <a class="logo" href="index.html">ellie</a>
+      <ul class="nav-links">
+        <li><a href="projects.html" class="active">Projects</a></li>
+        <li><a href="about.html">About Me</a></li>
+      </ul>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      </button>
+      <a class="say-hi" href="resume.pdf" target="_blank" rel="noopener">Resume</a>
+    </nav>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="projects.html" class="active">Projects</a>
+      <a href="about.html">About Me</a>
+    </div>
+  </div>
+
+  <header class="cs-hero">
+    <div class="cs-hero-bg">
+      <img src="images/ticketing-event-pair-pink.jpg" alt="OneRepublic performing on stage with a colorful projected backdrop, silhouetted crowd members holding up phones in the foreground">
+      <span class="cs-hero-credit">OneRepublic &middot; March 2026</span>
+    </div>
+    <div class="cs-wrap">
+      <a class="cs-back" href="projects.html">&larr; Back to Projects</a>
+      <p class="cs-eyebrow">UX Research Case Study</p>
+      <h1 class="cs-title">Rethinking Ticket Buying</h1>
+      <p class="cs-sub">Buying tickets at BYU-Idaho is confusing and hard. I led the research to find out exactly where the experience broke down, and built the validated case for fixing it.</p>
+
+      <div class="cs-meta-row">
+        <div class="cs-meta-card">
+          <span class="cs-meta-label">Role</span>
+          <div class="cs-meta-value">Lead UX Researcher</div>
+        </div>
+        <div class="cs-meta-card">
+          <span class="cs-meta-label">Team</span>
+          <div class="cs-meta-value">5 Stakeholders</div>
+        </div>
+        <div class="cs-meta-card">
+          <span class="cs-meta-label">Duration</span>
+          <div class="cs-meta-value">3&ndash;4 Months</div>
+        </div>
+        <div class="cs-meta-card">
+          <span class="cs-meta-label">Industry</span>
+          <div class="cs-meta-value">Higher Ed / Ticketing</div>
+        </div>
+        <div class="cs-meta-card">
+          <span class="cs-meta-label">Reach</span>
+          <div class="cs-meta-value">25,000+ Students &amp; Community</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <nav class="cs-sidenav" id="csSubnav">
+    <a class="cs-sidenav-back" href="projects.html">&larr; Go Back</a>
+    <div class="cs-sidenav-links">
+      <a href="#problem" data-section="problem">Problem</a>
+      <a href="#research" data-section="research">Research</a>
+      <a href="#findings" data-section="findings">Findings</a>
+      <a href="#recommendations" data-section="recommendations">Recommendations</a>
+      <a href="#impact" data-section="impact">Impact</a>
+      <a href="#toolkit" data-section="toolkit">Toolkit</a>
+      <a href="#reflection" data-section="reflection">Reflection</a>
+    </div>
+  </nav>
+
+  <section class="cs-section" id="problem">
+    <div class="cs-wrap">
+      <div class="cs-section-head">
+        <p class="cs-eyebrow">The Problem</p>
+        <h2>Two audiences. One broken experience.</h2>
+        <p class="cs-lede">The BYU-Idaho Ticket Office serves two very different audiences: students and members of the community. From weekly roller-skating to a OneRepublic concert, the website is the starting point for every event. However, for some users, the most memorable part of the process isn't the event they are attending; it's the overly complicated ticket purchasing process.</p>
+      </div>
+      <figure class="cs-figure cs-bleed">
+        <img src="images/ticketing-event-crowd.jpg" alt="Aerial view of a packed BYU-Idaho crowd holding up phones during a OneRepublic concert">
+        <figcaption>OneRepublic, March 2026. A single major event like this can draw 5,000&ndash;14,000 attendees — all funneled through the same broken purchase flow.</figcaption>
+      </figure>
+      <figure class="cs-figure cs-bleed">
+        <img src="images/ticketing-signin-current.jpg" alt="Current BYU-Idaho ticket office sign-in screen showing only a bare email field">
+        <figcaption>The current sign-in screen — no indication of which email to use, student or otherwise.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="cs-section" id="research">
+    <div class="fj-cursor" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none"><path d="M4 3l6.5 17 2.3-6.9L20 10.5 4 3z" fill="#fff"/></svg>
+      Ellie is researching
+    </div>
+    <div class="cs-wrap">
+      <div class="cs-section-head">
+        <p class="cs-eyebrow">Discover</p>
+        <h2>Four methods, one full picture</h2>
+        <p class="cs-lede">Instead of relying on assumptions, I organized and led <strong>11 rounds of research across four complementary methods</strong> to understand the ticket-buying experience from multiple angles. Each method answered a different question, helping distinguish isolated frustrations from recurring usability issues.</p>
+      </div>
+
+      <div class="fj-toolbar-wrap">
+        <div class="fj-toolbar">
+          <span class="fj-tool fj-tool-active" role="button" tabindex="0" title="Select" data-msg="Just here to point things out 👆">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M4 3l6.5 17 2.3-6.9L20 10.5 4 3z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+          </span>
+          <span class="fj-tool" role="button" tabindex="0" title="Sticky note" data-msg="No new stickies — but the ones below are all yours to drag!">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M4 4h16v11l-5 5H4V4z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M15 20v-4a1 1 0 011-1h4" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+          </span>
+          <span class="fj-tool" role="button" tabindex="0" title="Shapes" data-msg="Circle, square... creative chaos ✨">
+            <svg viewBox="0 0 24 24" fill="none"><circle cx="9" cy="9" r="5.5" stroke="currentColor" stroke-width="1.6"/><rect x="12.5" y="12.5" width="9" height="9" rx="1.5" stroke="currentColor" stroke-width="1.6"/></svg>
+          </span>
+          <span class="fj-tool" role="button" tabindex="0" title="Pen" data-msg="Doodle mode engaged. (No actual doodling happens.)">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M4 20l1-4.5L15.5 5 19 8.5 8.5 19 4 20z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+          </span>
+          <span class="fj-tool" role="button" tabindex="0" title="Comment" data-msg="For real feedback, my inbox is down in the footer 😊">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M4 5h16v10H9l-5 4V5z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+          </span>
+        </div>
+        <span class="fj-toolbar-msg" id="toolbarMsg"></span>
+      </div>
+
+      <div class="cs-stat-grid">
+        <div class="cs-stat-card">
+          <div class="cs-stat-num" data-count-to="86">86</div>
+          <div class="cs-stat-label">Participants</div>
+          <span class="cs-stat-emoji">👩‍💻</span>
+        </div>
+        <div class="cs-stat-card" data-reveal="flow">
+          <div class="cs-stat-num" data-count-to="11">11</div>
+          <div class="cs-stat-label">Rounds of Testing</div>
+          <span class="cs-stat-emoji">📋</span>
+          <span class="cs-stat-hint">Click to reveal</span>
+        </div>
+        <div class="cs-stat-card" data-reveal="methods">
+          <div class="cs-stat-num" data-count-to="4">4</div>
+          <div class="cs-stat-label">Research Methods</div>
+          <span class="cs-stat-emoji">🧪</span>
+          <span class="cs-stat-hint">Click to reveal</span>
+        </div>
+        <div class="cs-stat-card" data-reveal="market">
+          <div class="cs-stat-num" data-count-to="6">6</div>
+          <div class="cs-stat-label">Competitor Platforms</div>
+          <span class="cs-stat-emoji">💻</span>
+          <span class="cs-stat-hint">Click to reveal</span>
+        </div>
+      </div>
+
+      <div class="fj-comment fj-comment-static">
+        <span class="fj-comment-pin"><span class="fj-comment-avatar">E</span></span>
+        <span class="fj-comment-bubble">Explore, drag elements, and research along with me!</span>
+      </div>
+
+      <div class="cs-figure-row">
+        <figure class="cs-figure cs-reveal-target" id="flowReveal">
+          <img src="images/flow.png" alt="Flow diagram mapping the current BYU-Idaho ticket purchase journey, with frustrated-face markers at each friction point">
+          <figcaption>Here is a small piece of the original flow mapped out. Each frustrated face marks a point where a student got stuck, including a forgot-password loop and a seat-picker dead end.</figcaption>
+        </figure>
+
+        <figure class="cs-figure cs-reveal-target" id="marketReveal">
+          <img src="images/market.png" alt="Competitive analysis board showing sticky-note reactions to each site, a side-by-side comparison table, and a running do/don't list">
+          <figcaption>Competitive analysis across six ticketing systems. This was crucial when working within the existing Paciolan system. From this research, we learned about the opportunity to implement SSO, which was a game changer!</figcaption>
+          <div class="fj-comment">
+            <span class="fj-comment-pin" tabindex="0"><span class="fj-comment-avatar">E</span></span>
+            <span class="fj-comment-bubble">this was the real unlock — SSO fixed so much 👀</span>
+          </div>
+        </figure>
+      </div>
+
+      <ul class="cs-method-list cs-reveal-target" id="methodsReveal">
+        <li><strong>Usability Testing</strong> — observed where students and community members hesitated, backtracked, or got stuck.</li>
+        <li><strong>Tree Testing</strong> — validated whether a reorganized event category structure matched students' mental models.</li>
+        <li><strong>A/B Testing</strong> — two staggered rounds, comparing direct-linked vs. multi-step flows, then browse-first vs. checkout-first.</li>
+        <li><strong>Market Research</strong> — competitive analysis of six university and venue ticketing systems.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="cs-section" id="findings">
+    <div class="cs-wrap">
+      <div class="cs-section-head">
+        <p class="cs-eyebrow">Define</p>
+        <h2>Four friction points in the way of a ticket</h2>
+        <p class="cs-lede">Across every method, the same four pain points kept surfacing. Feel free to take a sneak peek at some of my findings!</p>
+      </div>
+
+      <div class="cs-desk">
+        <div class="cs-desk-grid">
+
+            <div class="cs-paper-card" data-issue-num="01">
+              <span class="cs-paper-tab">Issue 01</span>
+              <h3 class="cs-paper-title">Authentication Barriers</h3>
+              <p class="cs-paper-stat">11 of 12 students couldn't log in with confidence.</p>
+              <p class="cs-paper-body">The login screen offered no context, no account option, and no clue whether to use a BYU-Idaho or personal email. <strong>Five students even landed in the public purchasing flow by accident</strong>, paying community prices instead of student prices.</p>
+            </div>
+
+            <div class="cs-paper-card" data-issue-num="02">
+              <span class="cs-paper-tab">Issue 02</span>
+              <h3 class="cs-paper-title">Confusing Event Categories</h3>
+              <p class="cs-paper-stat">10 of 11 students expected "Center Stage" to live under Performing Arts. It didn't.</p>
+              <p class="cs-paper-body">Internal labels meant nothing to students, who had to scroll long, repetitive lists to find events. <strong>Renaming categories in plain language fixed it</strong> — retesting showed zero hesitation.</p>
+              <div class="cs-imsg">
+                <p class="cs-imsg-bubble">I could see it being in a lot of these categories.</p>
+                <cite class="cs-imsg-cite">Peyton, Sophomore</cite>
+              </div>
+            </div>
+
+            <div class="cs-paper-card" data-issue-num="03">
+              <span class="cs-paper-tab">Issue 03</span>
+              <h3 class="cs-paper-title">Seat Selection Challenges</h3>
+              <p class="cs-paper-stat">Half of the students and 4 in 10 had issues picking their seat.</p>
+              <p class="cs-paper-body">Section-based seating left students unsure they'd sit together, and worried community members with accessibility needs. <strong>They expected to pick an individual seat, not just a section.</strong></p>
+              <div class="cs-imsg">
+                <p class="cs-imsg-bubble">It just gives me a section... if I wanted to do it with friends, that would be stupid.</p>
+                <cite class="cs-imsg-cite">Carter, Sophomore</cite>
+              </div>
+            </div>
+
+            <div class="cs-paper-card" data-issue-num="04">
+              <span class="cs-paper-tab">Issue 04</span>
+              <h3 class="cs-paper-title">An Overly Lengthy Purchase Process</h3>
+              <p class="cs-paper-stat">10 of 10 students preferred a direct-linked flow over the multi-step default.</p>
+              <p class="cs-paper-body">The existing flow forced everyone through multiple repetitive pages. <strong>A streamlined, direct path to checkout felt faster to every single participant.</strong></p>
+              <div class="cs-imsg">
+                <p class="cs-imsg-bubble">I just want the ticket as fast as possible.</p>
+                <cite class="cs-imsg-cite">Kate</cite>
+              </div>
+            </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cs-section" id="recommendations">
+    <div class="cs-wrap">
+      <div class="cs-section-head">
+        <p class="cs-eyebrow">Design</p>
+        <h2>Four fixes, each traced straight back to the data</h2>
+        <p class="cs-lede">A list of fixes all backed up by the user's experiences and research.</p>
+      </div>
+
+      <div class="cs-rec-grid">
+        <div class="cs-rec-card">
+          <span class="cs-issue-num">01</span>
+          <h4>Single Sign-On</h4>
+          <p>Authenticate once with existing BYU-Idaho credentials, and stay signed in across myBYUI and the Ticket Office.</p>
+        </div>
+        <div class="cs-rec-card">
+          <span class="cs-issue-num">02</span>
+          <h4>Reorganized Categories</h4>
+          <p>Nest events around students' real mental models, not internal branding, with descriptive subcategory labels.</p>
+        </div>
+        <div class="cs-rec-card">
+          <span class="cs-issue-num">03</span>
+          <h4>Direct Seat Selection</h4>
+          <p>Visible seat numbers, instant confirmation, and a Student / Public pricing toggle on the same seat.</p>
+        </div>
+        <div class="cs-rec-card">
+          <span class="cs-issue-num">04</span>
+          <h4>Deep Linking</h4>
+          <p>Go straight from event discovery to the ticket page — no homepage, no detour — with login moved to the end.</p>
+        </div>
+      </div>
+
+      <div class="cs-subsection">
+        <h4 class="cs-subsection-title">The Ideal Flow</h4>
+        <p class="cs-body-text">To make this tangible for stakeholders, I built an end-to-end clickable prototype <strong>they could use to experience the difference.</strong></p>
+
+        <div class="cs-compare cs-bleed">
+          <figure class="cs-compare-item cs-compare-before">
+            <span class="cs-compare-tag">Before</span>
+            <video src="images/ticketing-flow-before.mp4" autoplay loop muted playsinline preload="auto"></video>
+            <figcaption>The current flow for a full concert on sale: homepage &rarr; category guesswork &rarr; event list &rarr; section-based seat map &rarr; checkout. Six-plus steps, several of them dead ends.</figcaption>
+          </figure>
+          <figure class="cs-compare-item cs-compare-after">
+            <span class="cs-compare-tag">After</span>
+            <video src="images/ticketing-flow-after-v2.mp4" autoplay loop muted playsinline preload="auto"></video>
+            <figcaption>The redesigned flow: deep link &rarr; specific seat choice &rarr; sign in &rarr; checkout. Four steps, no detours.</figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <div class="cs-subsection cs-small-recs">
+        <h4 class="cs-subsection-title">Additional Recommendations</h4>
+        <ul>
+          <li>Add a favicon and refine the logo for trust and credibility</li>
+          <li>Add brief menu descriptions to reduce navigation uncertainty</li>
+          <li>Clarify ticket access instructions post-purchase</li>
+          <li>Create a consistent profile / account page</li>
+          <li>Remove the redundant "Get Tickets Today" button, which dead-ends community members</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="cs-section" id="impact">
+    <div class="cs-wrap">
+      <div class="cs-section-head">
+        <p class="cs-eyebrow">Impact</p>
+        <h2>The projected impact</h2>
+        <p class="cs-lede">As the recommendations are still pending implementation, these are estimates based on the results in the data above.</p>
+      </div>
+
+      <div class="cs-impact-grid">
+        <div class="cs-impact-card">
+          <span class="cs-issue-num">Login</span>
+          <div class="cs-impact-values">
+            <span class="cs-impact-before">92%</span>
+            <span class="cs-impact-arrow">&rarr;</span>
+            <span class="cs-impact-after">~0%</span>
+          </div>
+          <p class="cs-impact-metric-label">of students struggling to log in</p>
+        </div>
+        <div class="cs-impact-card">
+          <span class="cs-issue-num">Seat selection</span>
+          <div class="cs-impact-values">
+            <span class="cs-impact-before">40&ndash;50%</span>
+            <span class="cs-impact-arrow">&rarr;</span>
+            <span class="cs-impact-after">~20&ndash;25%</span>
+          </div>
+          <p class="cs-impact-metric-label">of users picking the wrong seat</p>
+        </div>
+        <div class="cs-impact-card">
+          <span class="cs-issue-num">Category confusion</span>
+          <div class="cs-impact-values">
+            <span class="cs-impact-before">91%</span>
+            <span class="cs-impact-arrow">&rarr;</span>
+            <span class="cs-impact-after">5%</span>
+          </div>
+          <p class="cs-impact-metric-label">of students confused about ticket categories</p>
+        </div>
+        <div class="cs-impact-card">
+          <span class="cs-issue-num">Checkout speed</span>
+          <div class="cs-impact-values">
+            <span class="cs-impact-after cs-impact-qual">Fewer steps, faster completion</span>
+          </div>
+        </div>
+        <div class="cs-impact-card cs-impact-card--wide">
+          <span class="cs-issue-num">Estimated revenue recovery</span>
+          <div class="cs-impact-values">
+            <span class="cs-impact-after">$4.1K&ndash;$11.6K</span>
+            <span class="cs-impact-arrow">per major event</span>
+          </div>
+          <p class="cs-impact-caption">Based on measured login friction and abandonment across a typical major event.</p>
+        </div>
+      </div>
+
+      <div class="cs-ig-row">
+        <div class="cs-ig-post">
+          <div class="cs-ig-header">
+            <span class="cs-ig-avatar">B</span>
+            <span class="cs-ig-handle">byui.ticketoffice</span>
+          </div>
+          <div class="cs-ig-photo">
+            <img src="images/ticketing-event-celebration.jpg" alt="Confetti streamers falling over a cheering BYU-Idaho concert crowd">
+          </div>
+          <div class="cs-ig-actions">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 20.5s-7.5-4.6-10-9.3C.4 7.8 2 4 5.6 3.3c2-.4 4 .4 5.2 2.1a1 1 0 001.6 0c1.2-1.7 3.2-2.5 5.2-2.1C21.2 4 22.8 7.8 21.2 11.2c-2.5 4.7-9.2 9.3-9.2 9.3z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M21 12a8.5 8.5 0 01-12.4 7.5L3 21l1.6-5.3A8.5 8.5 0 1121 12z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M21 3L11 13M21 3l-6.5 18-4-8-8-4 18-6z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+          </div>
+        </div>
+        <div class="cs-ig-post">
+          <div class="cs-ig-header">
+            <span class="cs-ig-avatar">B</span>
+            <span class="cs-ig-handle">byui.ticketoffice</span>
+          </div>
+          <div class="cs-ig-photo">
+            <img src="images/ticketing-event-closer.jpg" alt="A performer on stage with arm raised, shown on the venue's big screen above the crowd">
+          </div>
+          <div class="cs-ig-actions">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 20.5s-7.5-4.6-10-9.3C.4 7.8 2 4 5.6 3.3c2-.4 4 .4 5.2 2.1a1 1 0 001.6 0c1.2-1.7 3.2-2.5 5.2-2.1C21.2 4 22.8 7.8 21.2 11.2c-2.5 4.7-9.2 9.3-9.2 9.3z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M21 12a8.5 8.5 0 01-12.4 7.5L3 21l1.6-5.3A8.5 8.5 0 1121 12z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M21 3L11 13M21 3l-6.5 18-4-8-8-4 18-6z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+          </div>
+        </div>
+        <div class="cs-ig-post">
+          <div class="cs-ig-header">
+            <span class="cs-ig-avatar">B</span>
+            <span class="cs-ig-handle">byui.ticketoffice</span>
+          </div>
+          <div class="cs-ig-photo">
+            <img src="images/ticketing-event-opener.jpg" alt="Band silhouetted against warm gold stage lighting in front of the crowd">
+          </div>
+          <div class="cs-ig-actions">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 20.5s-7.5-4.6-10-9.3C.4 7.8 2 4 5.6 3.3c2-.4 4 .4 5.2 2.1a1 1 0 001.6 0c1.2-1.7 3.2-2.5 5.2-2.1C21.2 4 22.8 7.8 21.2 11.2c-2.5 4.7-9.2 9.3-9.2 9.3z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M21 12a8.5 8.5 0 01-12.4 7.5L3 21l1.6-5.3A8.5 8.5 0 1121 12z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M21 3L11 13M21 3l-6.5 18-4-8-8-4 18-6z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+          </div>
+        </div>
+      </div>
+      <p class="cs-ig-caption">Most importantly a better experience for students and community members</p>
+    </div>
+  </section>
+
+  <section class="cs-section" id="toolkit">
+    <div class="cs-wrap">
+      <div class="cs-section-head">
+        <p class="cs-eyebrow">Toolkit</p>
+        <h2>What I used to get here</h2>
+        <p class="cs-lede">The tools behind the research, synthesis, and writing.</p>
+      </div>
+
+      <div class="cs-toolkit-grid">
+        <div class="cs-toolkit-card">
+          <img class="cs-toolkit-logo" src="images/figma-logo2.png" alt="Figma logo">
+          <h3 class="cs-toolkit-name">Figma</h3>
+          <p class="cs-toolkit-desc">Prototyping the redesigned ticket flow and mocking up before/after screens.</p>
+        </div>
+        <div class="cs-toolkit-card">
+          <img class="cs-toolkit-logo" src="images/figjam-logo.jpeg" alt="FigJam logo">
+          <h3 class="cs-toolkit-name">FigJam</h3>
+          <p class="cs-toolkit-desc">Synthesizing raw research notes and mapping the four friction points.</p>
+        </div>
+        <div class="cs-toolkit-card">
+          <img class="cs-toolkit-logo" src="images/chatgpt-logo.jpg" alt="ChatGPT logo">
+          <h3 class="cs-toolkit-name">ChatGPT</h3>
+          <p class="cs-toolkit-desc">Drafting interview scripts and stress-testing survey wording.</p>
+        </div>
+        <div class="cs-toolkit-card">
+          <img class="cs-toolkit-logo" src="images/claude-logo.png" alt="Claude logo">
+          <h3 class="cs-toolkit-name">Claude</h3>
+          <p class="cs-toolkit-desc">Structuring findings and shaping this case study's narrative.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cs-section cs-reflection" id="reflection">
+    <div class="cs-wrap">
+      <div class="cs-section-head">
+        <p class="cs-eyebrow">Reflection</p>
+        <h2>What this project taught me</h2>
+      </div>
+      <p class="cs-body-text">This project was different from what a lot of people consider UX work. Instead of designing interfaces, I had to work within an existing system, problem-solve, and recommend fixes that were practical and realistic. <strong>The most valuable deliverables I could provide weren't beautiful loading screens or interactions</strong> — it was data and insights gained from boots-on-the-ground research and testing.</p>
+      <p class="cs-body-text">Because I was the only researcher on this project, that meant taking full responsibility for research rigor: designing unbiased test structures, synthesizing findings across four different methods, and <strong>delivering real solutions to stakeholders based on my findings.</strong></p>
+      <p class="cs-pull">The research and recommendations have been delivered and are pending implementation. If adopted, I'd expect faster checkout completion, fewer abandoned purchases during seat selection, and far less demand on in-person resources when things go wrong.</p>
+      <p class="cs-signoff">Thanks for reading; <button type="button" class="cs-surprise-trigger" id="csSurprise">click here for a surprise!</button></p>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-logo">ellie</div>
+      <nav class="footer-links">
+        <a href="https://linkedin.com/in/ellietalbot" target="_blank" rel="noopener">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8.25h4V23h-4V8.25zM8.5 8.25h3.83v2.01h.05c.53-1 1.84-2.06 3.79-2.06 4.06 0 4.81 2.67 4.81 6.14V23h-4v-6.7c0-1.6-.03-3.66-2.23-3.66-2.24 0-2.58 1.75-2.58 3.55V23h-4V8.25z" fill="currentColor"/>
+          </svg>
+          LinkedIn
+        </a>
+        <a href="mailto:hello@ellietalbot.design">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M2 5.5h20a1 1 0 011 1V18a1 1 0 01-1 1H2a1 1 0 01-1-1V6.5a1 1 0 011-1z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+            <path d="M1.5 6.2L12 13.5l10.5-7.3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Email
+        </a>
+        <a href="resume.pdf" target="_blank" rel="noopener">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M6 2.5H14L19 7.5V19.5C19 20.6 18.1 21.5 17 21.5H6C4.9 21.5 4 20.6 4 19.5V4.5C4 3.4 4.9 2.5 6 2.5Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+            <path d="M13.5 2.6V6.8C13.5 7.35 13.95 7.8 14.5 7.8H18.7" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+            <path d="M8 13h8M8 16.5h8M8 9.5h4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+          </svg>
+          Resume
+        </a>
+      </nav>
+    </div>
+    <div class="footer-inner footer-bottom">
+      <p>&copy; 2026 Ellie Talbot. Designed &amp; built with a little bit of magic.</p>
+    </div>
+  </footer>
+
+<script>
+  // section + card reveal on scroll
+  const csItems = document.querySelectorAll('.cs-reveal, .cs-section, .cs-meta-card, .cs-stat-card, .cs-rec-card, .cs-impact-card, .cs-law-card, .cs-toolkit-card, .cs-ig-post, .cs-paper-card');
+  if ('IntersectionObserver' in window){
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if (e.isIntersecting){
+          e.target.classList.add('is-visible');
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.08 });
+    csItems.forEach(i => io.observe(i));
+  } else {
+    csItems.forEach(i => i.classList.add('is-visible'));
+  }
+
+  // count-up on the research stat numbers
+  const countEls = document.querySelectorAll('[data-count-to]');
+  if ('IntersectionObserver' in window && countEls.length){
+    const countIo = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if (!e.isIntersecting) return;
+        const el = e.target;
+        const target = parseInt(el.dataset.countTo, 10);
+        const duration = 900;
+        const start = performance.now();
+        el.textContent = '0';
+        function tick(now){
+          const p = Math.min(1, (now - start) / duration);
+          const eased = 1 - Math.pow(1 - p, 3);
+          el.textContent = Math.round(eased * target);
+          if (p < 1) requestAnimationFrame(tick);
+          else el.textContent = target;
+        }
+        requestAnimationFrame(tick);
+        countIo.unobserve(el);
+      });
+    }, { threshold: 0.6 });
+    countEls.forEach(el => countIo.observe(el));
+  }
+
+  // scrollspy for the sticky sub-nav
+  const subnavLinks = document.querySelectorAll('.cs-sidenav-links a');
+  const spySections = document.querySelectorAll('.cs-section[id]');
+  if ('IntersectionObserver' in window && subnavLinks.length){
+    const spy = new IntersectionObserver((entries)=>{
+      entries.forEach(entry=>{
+        if (entry.isIntersecting){
+          const id = entry.target.id;
+          subnavLinks.forEach(a => a.classList.toggle('active', a.dataset.section === id));
+        }
+      });
+    }, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
+    spySections.forEach(s => spy.observe(s));
+  }
+
+  // Discover section drag-around — every sticky, note card, and pinned
+  // photo can be picked up and moved, like a real whiteboard. Purely
+  // client-side and per-session: nothing is saved anywhere, so a page
+  // refresh (or another visitor's own session) always starts from the
+  // default laid-out positions.
+  (function initResearchDrag(){
+    const zone = document.getElementById('research');
+    if (!zone) return;
+
+    // rotation angles baked into the CSS for each element, keyed by
+    // position among its siblings — used so dragging can preserve the
+    // sticky-note tilt instead of snapping it flat
+    const STAT_ROTATIONS = [-3, 2, -2, 3];
+    const NOTE_ROTATIONS = [-6, 4, -3, 6];
+    const FIGURE_ROTATIONS = [-4, 3.5];
+
+    // a plain pointerdown->pointerup with barely any movement counts as a
+    // "click" (fires onClick, e.g. the stat cards' reveal toggle) rather
+    // than a drag — anything past this many px is a real drag instead
+    const CLICK_THRESHOLD = 6;
+
+    function setupDrag(el, rotationDeg, useCssVars, onClick){
+      el.classList.add('fj-draggable');
+      let startX = 0, startY = 0, baseX = 0, baseY = 0, dragX = 0, dragY = 0, dragging = false, moved = 0;
+
+      function apply(){
+        if (useCssVars){
+          el.style.setProperty('--drag-x', dragX + 'px');
+          el.style.setProperty('--drag-y', dragY + 'px');
+          el.style.setProperty('--drag-rot', rotationDeg + 'deg');
+        } else {
+          el.style.transform = 'translate(' + dragX + 'px, ' + dragY + 'px) rotate(' + rotationDeg + 'deg)';
+        }
+      }
+
+      function pointOf(e){
+        if (e.touches && e.touches[0]) return e.touches[0];
+        if (e.changedTouches && e.changedTouches[0]) return e.changedTouches[0];
+        return e;
+      }
+
+      function onMove(e){
+        if (!dragging) return;
+        const p = pointOf(e);
+        const dx = p.clientX - startX;
+        const dy = p.clientY - startY;
+        moved = Math.max(moved, Math.abs(dx), Math.abs(dy));
+        dragX = baseX + dx;
+        dragY = baseY + dy;
+        apply();
+        if (e.cancelable) e.preventDefault();
+      }
+
+      function onUp(e){
+        if (!dragging) return;
+        dragging = false;
+        el.classList.remove('is-dragging');
+        document.removeEventListener('mousemove', onMove);
+        document.removeEventListener('touchmove', onMove);
+        document.removeEventListener('mouseup', onUp);
+        document.removeEventListener('touchend', onUp);
+
+        if (moved < CLICK_THRESHOLD){
+          // barely moved — treat it as a click, leave position untouched
+          if (onClick) onClick();
+          return;
+        }
+        const p = pointOf(e);
+        baseX = dragX = baseX + (p.clientX - startX);
+        baseY = dragY = baseY + (p.clientY - startY);
+        el.classList.add('fj-moved');
+        apply();
+      }
+
+      function onDown(e){
+        if (typeof e.button === 'number' && e.button !== 0) return;
+        dragging = true;
+        moved = 0;
+        const p = pointOf(e);
+        startX = p.clientX;
+        startY = p.clientY;
+        el.classList.add('is-dragging');
+        document.addEventListener('mousemove', onMove);
+        document.addEventListener('touchmove', onMove, { passive: false });
+        document.addEventListener('mouseup', onUp);
+        document.addEventListener('touchend', onUp);
+        e.preventDefault();
+      }
+
+      el.addEventListener('mousedown', onDown);
+      el.addEventListener('touchstart', onDown, { passive: false });
+    }
+
+    zone.querySelectorAll('.cs-stat-card').forEach(function(el, i){
+      const revealId = el.dataset.reveal;
+      const onClick = revealId ? function(){ toggleReveal(revealId); } : null;
+      setupDrag(el, STAT_ROTATIONS[i] || 0, true, onClick);
+    });
+    zone.querySelectorAll('.cs-method-list li').forEach(function(el, i){
+      setupDrag(el, NOTE_ROTATIONS[i] || 0, false);
+    });
+    zone.querySelectorAll('.cs-figure').forEach(function(el, i){
+      setupDrag(el, FIGURE_ROTATIONS[i] || 0, false);
+    });
+
+    // clicking "Research Methods" reveals the method-list note cards;
+    // clicking "Competitor Platforms" reveals the market-research photo
+    function toggleReveal(name){
+      const targetIds = { flow: 'flowReveal', methods: 'methodsReveal', market: 'marketReveal' };
+      const target = document.getElementById(targetIds[name]);
+      if (target) target.classList.toggle('is-open');
+    }
+  })();
+
+  // Decorative toolbar — purely cosmetic (none of these actually switch
+  // tools), but clicking one moves the active highlight over and pops up
+  // a little message with its own auto-hide timer.
+  (function initToolbar(){
+    const tools = document.querySelectorAll('.fj-toolbar .fj-tool');
+    const msgEl = document.getElementById('toolbarMsg');
+    if (!tools.length || !msgEl) return;
+
+    let hideTimer = null;
+
+    function activate(tool){
+      tools.forEach(function(t){ t.classList.toggle('fj-tool-active', t === tool); });
+      msgEl.textContent = tool.dataset.msg || '';
+      msgEl.classList.add('is-visible');
+      clearTimeout(hideTimer);
+      hideTimer = setTimeout(function(){ msgEl.classList.remove('is-visible'); }, 3200);
+    }
+
+    tools.forEach(function(tool){
+      tool.addEventListener('click', function(){ activate(tool); });
+      tool.addEventListener('keydown', function(e){
+        if (e.key === 'Enter' || e.key === ' '){
+          e.preventDefault();
+          activate(tool);
+        }
+      });
+    });
+  })();
+
+  // Discover section live cursor — the "Ellie is researching" tag tracks
+  // the mouse while it's over the section, like a real-time collaborator
+  // cursor on a whiteboard, instead of sitting fixed in one spot.
+  (function initResearchCursor(){
+    const zone = document.getElementById('research');
+    const cursor = zone && zone.querySelector('.fj-cursor');
+    if (!zone || !cursor) return;
+
+    let raf = null;
+    function moveTo(x, y){
+      cursor.style.left = x + 'px';
+      cursor.style.top = y + 'px';
+    }
+
+    zone.addEventListener('mousemove', function(e){
+      const rect = zone.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      if (raf) cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(function(){ moveTo(x, y); });
+    });
+    zone.addEventListener('mouseenter', function(){ cursor.classList.add('is-active'); });
+    zone.addEventListener('mouseleave', function(){ cursor.classList.remove('is-active'); });
+  })();
+
+  // fade the fixed side nav in only once the hero has scrolled out of
+  // view, so it never floats over the hero photo
+  const csSidenav = document.querySelector('.cs-sidenav');
+  const csHero = document.querySelector('.cs-hero');
+  if (csSidenav && csHero && 'IntersectionObserver' in window){
+    const heroIo = new IntersectionObserver((entries)=>{
+      entries.forEach(entry=>{
+        csSidenav.classList.toggle('is-visible', !entry.isIntersecting);
+      });
+    }, { threshold: 0, rootMargin: '-160px 0px 0px 0px' });
+    heroIo.observe(csHero);
+  }
+
+  // closing-line easter egg — clicking "click here for a surprise" turns
+  // the cursor into a random fruit or flower emoji
+  const csSurprise = document.getElementById('csSurprise');
+  if (csSurprise){
+    const surpriseCursorEmoji = ['🍉','🍊','🍋','🍓','🍇','🍍','🍒','🍑','🍎','🍌','🌸','🌷','🌻','🌼','🌺','🪷'];
+
+    function emojiCursor(emoji){
+      const svg = `<svg xmlns='http://www.w3.org/2000/svg' width='36' height='36'><text x='1' y='28' font-size='28'>${emoji}</text></svg>`;
+      return `url("data:image/svg+xml,${encodeURIComponent(svg)}") 16 16, auto`;
+    }
+
+    csSurprise.addEventListener('click', () => {
+      const pick = surpriseCursorEmoji[Math.floor(Math.random() * surpriseCursorEmoji.length)];
+      document.body.style.cursor = emojiCursor(pick);
+    });
+  }
+</script>
+<script src="js/nav.js"></script>
+</body>
+</html>

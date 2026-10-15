@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — Ellie Talbot</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/about.css">
+</head>
+<body>
+
+  <div class="nav-wrap">
+    <div class="nav-glow"></div>
+    <nav>
+      <a class="logo" href="index.html">ellie</a>
+      <ul class="nav-links">
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="about.html" class="active">About Me</a></li>
+      </ul>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      </button>
+      <a class="say-hi" href="resume.pdf" target="_blank" rel="noopener">Resume</a>
+    </nav>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="projects.html">Projects</a>
+      <a href="about.html" class="active">About Me</a>
+    </div>
+  </div>
+
+  <div class="pg-head">
+    <p class="pg-eyebrow">About</p>
+    <h1 class="pg-title">Ellie's story</h1>
+    <p class="pg-sub">A little about how I got here, what I'm drawn to, and where to find me when I'm not designing.</p>
+  </div>
+
+  <section class="story-section">
+    <div class="story-inner">
+
+      <div class="story-grid">
+        <div class="story-card-wrap">
+          <div class="story-card" id="storyCard">
+            <div class="story-progress" id="storyProgress"></div>
+            <div class="story-illustration" id="storyIllustration"></div>
+            <div class="story-click-zone left" id="zoneLeft"></div>
+            <div class="story-click-zone right" id="zoneRight"></div>
+          </div>
+          <p class="story-caption" id="storyCaption">Traveling, searching for inspiration all around the world</p>
+        </div>
+
+        <div class="story-text">
+          <p>I'm a full-stack developer turned UX designer. I unexpectedly landed on BYU-Idaho's UX team and fell in love with intentional design.</p>
+          <p>Because I come from development, I speak both languages, so I can work just as easily with designers as with the developers who build what we design.</p>
+
+          <h2>The best designs are the ones where people were remembered every step of the way.</h2>
+          <p>As the child of a minimalist mom and a designer dad, I'm quite literally the love child of functional flows and beautiful visuals. I believe the best design is the kind people never even notice. It just lets them do the thing they came to do.</p>
+
+          <div class="cta-row">
+            <a href="resume.pdf" target="_blank" rel="noopener" class="cta-btn">Resume</a>
+            <a href="https://linkedin.com/in/ellietalbot" target="_blank" rel="noopener" class="cta-btn">LinkedIn</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="section-block last">
+    <p class="section-eyebrow">Professional Journey</p>
+
+    <div class="tabs" id="tabs">
+      <button class="tab active" data-tab="experience">My Experience</button>
+      <button class="tab" data-tab="education">Education</button>
+      <button class="tab" data-tab="skillset">Skillset</button>
+      <button class="tab" data-tab="toolkit">Toolkit</button>
+    </div>
+
+    <div class="tab-panel active" data-panel="experience" id="accordion"></div>
+
+    <div class="tab-panel" data-panel="education">
+      <div class="edu-item">
+        <h3>B.S. in Software Engineering, Minor in Graphic Design</h3>
+        <p>BYU-Idaho · 2023 – 2027 · GPA 3.95</p>
+      </div>
+      <div class="edu-item">
+        <h3>Relevant Coursework</h3>
+        <p>Web Frontend Dev, Web Backend Dev, Cloud Technologies, Algorithm Design</p>
+      </div>
+    </div>
+
+    <div class="tab-panel" data-panel="skillset">
+      <div class="skill-group">
+        <h3>Languages</h3>
+        <div class="skill-pills">
+          <span class="skill-pill">JavaScript</span>
+          <span class="skill-pill">Python</span>
+          <span class="skill-pill">TypeScript</span>
+          <span class="skill-pill">Dart</span>
+          <span class="skill-pill">C#</span>
+          <span class="skill-pill">Rust</span>
+          <span class="skill-pill">HTML</span>
+          <span class="skill-pill">CSS</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h3>Frameworks</h3>
+        <div class="skill-pills">
+          <span class="skill-pill">Flutter</span>
+          <span class="skill-pill">Express (Node.js)</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h3>Tools &amp; Platforms</h3>
+        <div class="skill-pills">
+          <span class="skill-pill">AWS</span>
+          <span class="skill-pill">Firebase</span>
+          <span class="skill-pill">Git</span>
+          <span class="skill-pill">GitHub</span>
+          <span class="skill-pill">Docker</span>
+          <span class="skill-pill">PostgreSQL</span>
+          <span class="skill-pill">MySQL</span>
+          <span class="skill-pill">SQLite</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h3>UX &amp; Graphic Design</h3>
+        <div class="skill-pills">
+          <span class="skill-pill">Adobe Creative Suite</span>
+          <span class="skill-pill">Figma</span>
+          <span class="skill-pill">UX Research &amp; Analysis</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h3>Soft Skills</h3>
+        <div class="skill-pills">
+          <span class="skill-pill">Leadership &amp; Team Collaboration</span>
+          <span class="skill-pill">Problem Solving</span>
+          <span class="skill-pill">Conversational Japanese</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tab-panel" data-panel="toolkit">
+      <div class="toolkit-group">
+        <h3>Design</h3>
+        <div class="toolkit-icons">
+          <button type="button" class="toolkit-icon" data-tool="Figma" data-desc="I use Figma for UI design, prototyping, and building the design systems that keep a product consistent as it grows."><img src="images/figma-logo2.png" alt="Figma" loading="lazy"></button>
+          <button type="button" class="toolkit-icon" data-tool="Illustrator" data-desc="I use Illustrator for vector marks, small graphic systems, and crisp interface details that need to scale without losing personality."><img src="images/illustrator-logo.webp" alt="Illustrator" loading="lazy"></button>
+          <button type="button" class="toolkit-icon" data-tool="Photoshop" data-desc="I use Photoshop for image cleanup, visual polish, texture studies, and preparing assets so the final interface feels sharper and more intentional."><img src="images/photoshop-logo.webp" alt="Photoshop" loading="lazy"></button>
+          <button type="button" class="toolkit-icon" data-tool="InDesign" data-desc="I use InDesign for multi-page layouts, print-ready documents, and the planners and stationery I design for my Etsy shop."><img src="images/indesign-logo.webp" alt="InDesign" loading="lazy"></button>
+          <button type="button" class="toolkit-icon" data-tool="Procreate" data-desc="I use Procreate for quick sketches, hand-drawn textures, and illustration work that a vector tool can't quite capture."><img src="images/Procreate-logo.png" alt="Procreate" loading="lazy"></button>
+        </div>
+      </div>
+      <div class="toolkit-group">
+        <h3>Development</h3>
+        <div class="toolkit-icons">
+          <button type="button" class="toolkit-icon toolkit-icon--contain" data-tool="VS Code" data-desc="My daily driver for writing code, from quick scripts to full front-end and back-end builds."><img src="images/vscode-logo.webp" alt="VS Code" loading="lazy"></button>
+          <button type="button" class="toolkit-icon" data-tool="GitHub" data-desc="Where every project lives: version control, pull requests, and the history of how a design decision actually happened."><img src="images/github-logo.png" alt="GitHub" loading="lazy"></button>
+          <button type="button" class="toolkit-icon toolkit-icon--contain" data-tool="AWS" data-desc="I use AWS for cloud infrastructure and hosting when a project needs more than a static site can offer."><img src="images/aws-logo.webp" alt="AWS" loading="lazy"></button>
+          <button type="button" class="toolkit-icon toolkit-icon--contain" data-tool="Firebase" data-desc="My go-to for auth, realtime data, and getting a full-stack idea working fast without standing up a whole backend."><img src="images/firebase-logo.png" alt="Firebase" loading="lazy"></button>
+          <button type="button" class="toolkit-icon toolkit-icon--contain" data-tool="Docker" data-desc="I use Docker to keep development environments consistent, so &quot;it works on my machine&quot; stops being a problem."><img src="images/docker-logo.webp" alt="Docker" loading="lazy"></button>
+        </div>
+      </div>
+      <div class="toolkit-group">
+        <h3>AI Tools</h3>
+        <div class="toolkit-icons">
+          <button type="button" class="toolkit-icon" data-tool="V0" data-desc="An AI pair-designer for quickly scaffolding UI ideas in code before I commit to a direction."><img src="images/v0-logo.webp" alt="V0" loading="lazy"></button>
+          <button type="button" class="toolkit-icon" data-tool="Claude" data-desc="My go-to AI collaborator for research, writing, and thinking through tricky product and design decisions."><img src="images/claude-logo.png" alt="Claude" loading="lazy"></button>
+        </div>
+      </div>
+      <div class="toolkit-group">
+        <h3>Collaboration</h3>
+        <div class="toolkit-icons">
+          <button type="button" class="toolkit-icon toolkit-icon--contain" data-tool="Excel" data-desc="Spreadsheets for scheduling, performance tracking, and the reporting that came with managing a team of tutors."><img src="images/excel-logo.webp" alt="Excel" loading="lazy"></button>
+          <button type="button" class="toolkit-icon toolkit-icon--contain" data-tool="Word" data-desc="Documents, reports, and the written side of coordinating a team."><img src="images/word-logo.webp" alt="Word" loading="lazy"></button>
+          <button type="button" class="toolkit-icon toolkit-icon--contain" data-tool="Teams" data-desc="Where meetings, check-ins, and day-to-day team communication happen."><img src="images/teams-logo.webp" alt="Teams" loading="lazy"></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-logo">ellie</div>
+      <nav class="footer-links">
+        <a href="https://linkedin.com/in/ellietalbot" target="_blank" rel="noopener">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8.25h4V23h-4V8.25zM8.5 8.25h3.83v2.01h.05c.53-1 1.84-2.06 3.79-2.06 4.06 0 4.81 2.67 4.81 6.14V23h-4v-6.7c0-1.6-.03-3.66-2.23-3.66-2.24 0-2.58 1.75-2.58 3.55V23h-4V8.25z" fill="currentColor"/>
+          </svg>
+          LinkedIn
+        </a>
+        <a href="mailto:hello@ellietalbot.design">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M2 5.5h20a1 1 0 011 1V18a1 1 0 01-1 1H2a1 1 0 01-1-1V6.5a1 1 0 011-1z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+            <path d="M1.5 6.2L12 13.5l10.5-7.3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Email
+        </a>
+        <a href="resume.pdf" target="_blank" rel="noopener">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M6 2.5H14L19 7.5V19.5C19 20.6 18.1 21.5 17 21.5H6C4.9 21.5 4 20.6 4 19.5V4.5C4 3.4 4.9 2.5 6 2.5Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+            <path d="M13.5 2.6V6.8C13.5 7.35 13.95 7.8 14.5 7.8H18.7" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+            <path d="M8 13h8M8 16.5h8M8 9.5h4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+          </svg>
+          Resume
+        </a>
+      </nav>
+    </div>
+    <div class="footer-inner footer-bottom">
+      <p>© 2026 Ellie Talbot. Designed &amp; built with a little bit of magic.</p>
+    </div>
+  </footer>
+
+<script src="js/about.js"></script>
+<script src="js/nav.js"></script>
+
+</body>
+</html>
